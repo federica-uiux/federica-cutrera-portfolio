@@ -235,7 +235,9 @@
     gap: 0.75rem;
     flex-wrap: wrap;
   }
-  .hero-cta a {
+  .cta-primary,
+  .cta-secondary {
+    display: inline-block;
     font-family: var(--mono);
     font-size: 0.85rem;
     text-transform: lowercase;
@@ -244,19 +246,19 @@
     border-radius: 6px;
     transition: all 0.15s ease;
   }
-  .hero-cta .cta-primary {
+  .cta-primary {
     background: var(--violet);
     color: var(--on-violet);
   }
-  .hero-cta .cta-primary:hover {
+  .cta-primary:hover {
     opacity: 0.88;
   }
-  .hero-cta .cta-secondary {
+  .cta-secondary {
     background: transparent;
     color: var(--ink);
     border: 1px solid var(--line);
   }
-  .hero-cta .cta-secondary:hover {
+  .cta-secondary:hover {
     border-color: var(--violet);
     color: var(--violet);
   }
@@ -482,9 +484,7 @@
     border-radius: 0;
     padding: 2.5rem 0;
     display: flex;
-    justify-content: space-between;
-    align-items: flex-end;
-    flex-wrap: wrap;
+    flex-direction: column;
     gap: 1.5rem;
     transform: none;
   }
@@ -493,30 +493,44 @@
     font-family: var(--serif);
     font-weight: 900;
     font-size: clamp(1.4rem, 4vw, 2rem);
-    max-width: 20ch;
+    max-width: none;
   }
   .footer-tagline .accent { color: var(--violet); }
 
   .footer-links {
     display: flex;
+    justify-content: flex-end;
     gap: 1.5rem;
+    margin-top: 0;
     font-family: var(--mono);
     font-size: 0.85rem;
   }
   .footer-links a { color: var(--ink-soft); text-decoration: none; text-transform: lowercase; }
+  .footer-links a.footer-cta { color: var(--on-violet); }
   .footer-links a:hover { color: var(--violet); }
+  .footer-links a.footer-cta:hover { color: var(--on-violet); }
   .footer-links a::before { content: '['; opacity: 0.4; }
   .footer-links a::after { content: ']'; opacity: 0.4; }
+  .footer-links a.footer-cta::before,
+  .footer-links a.footer-cta::after { content: none; }
 
   .footer-meta {
     font-family: var(--mono);
     font-size: 0.75rem;
     color: var(--ink-soft);
-    width: 100%;
-    padding-top: 1.5rem;
-    border-top: 1px dashed var(--line);
     text-transform: lowercase;
   }
+  .footer-meta-row {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    padding-top: 1.5rem;
+    border-top: 1px dashed var(--line);
+  }
+
 
   @media (max-width: 860px) {
     .case-list { grid-template-columns: 1fr 1fr; }
@@ -691,12 +705,15 @@
     <footer id="footer">
       <div>
         <span class="footer-chip">contatti</span>
-        <p class="footer-tagline">Parliamo del prossimo <span class="accent">problema interessante</span>.</p>
+        <p class="footer-tagline"><span class="accent">Parliamo</span> del prossimo problema interessante.</p>
+        <div class="footer-links">
+          <a href="https://www.linkedin.com/in/federica-cutrera" target="_blank" class="cta-primary footer-cta">linkedin</a>
+        </div>
       </div>
-      <div class="footer-links">
-        <a href="https://www.linkedin.com/in/federica-cutrera" target="_blank">linkedin</a>
+      <div class="footer-meta-row">
+        <span class="footer-meta">Vibecoded with 💜</span>
+        <span class="footer-meta">federica cutrera, 2026</span>
       </div>
-      <div class="footer-meta">federica cutrera, 2026</div>
     </footer>
   </div>
   <script>
