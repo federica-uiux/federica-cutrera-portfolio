@@ -148,6 +148,40 @@
   }
   .about-sketch .polaroid {
     transform: rotate(-2.5deg);
+    transition: transform 0.3s ease;
+    cursor: pointer;
+  }
+  .about-sketch .polaroid:hover,
+  .about-sketch .polaroid:active,
+  .about-sketch .polaroid.tapped {
+    transform: rotate(2deg) scale(1.03);
+  }
+  .about-sketch .polaroid-imgs {
+    position: relative;
+  }
+  .about-sketch .polaroid-imgs img {
+    display: block;
+    width: 100%;
+    border-radius: 2px;
+  }
+  .about-sketch .polaroid-imgs .img-hover {
+    position: absolute;
+    inset: 0;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+  }
+  .about-sketch .polaroid:hover .img-hover,
+  .about-sketch .polaroid:active .img-hover,
+  .about-sketch .polaroid.tapped .img-hover {
+    opacity: 1;
+  }
+  .about-sketch .polaroid:hover .img-default,
+  .about-sketch .polaroid:active .img-default,
+  .about-sketch .polaroid.tapped .img-default {
+    opacity: 0;
+  }
+  .about-sketch .polaroid-imgs .img-default {
+    transition: opacity 0.3s ease;
   }
 
   .hero-eyebrow,
@@ -612,8 +646,11 @@
           <p>Sono sopravvissuta fin qui considerando che ho iniziato a progettare prodotti digitali quando Adobe XD era ancora considerato lo strumento &ldquo;all&rsquo;avanguardia&rdquo;. Se non altro, questo mi ha insegnato ad adattarmi &mdash; che si tratti di lusso digitale per <strong>Panerai</strong>, prodotti bancari per <strong>UniCredit</strong>, o vibecoding veloce nelle trincee di una startup.</p>
         </div>
         <div class="about-sketch">
-          <div class="polaroid tape-yellow">
-            <img src="sketch-about.png" alt="Sketch a penna, illustrazione di saluto">
+          <div class="polaroid tape-yellow" id="about-polaroid" onclick="document.getElementById('about-polaroid').classList.toggle('tapped')">
+            <div class="polaroid-imgs">
+              <img class="img-default" src="sketch-about.png" alt="Sketch a penna, illustrazione di saluto">
+              <img class="img-hover" src="sketch-about-hover.png" alt="Sketch a penna, illustrazione di festeggiamento">
+            </div>
           </div>
         </div>
       </div>
