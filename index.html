@@ -1,0 +1,687 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Federica Cutrera — Product Designer + AI</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,900&family=Work+Sans:wght@400;500&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --sand: #ffffff;
+    --dot: #E0DDD6;
+    --ink: #2B2925;
+    --ink-soft: #6B655C;
+    --line: #DAD6CD;
+    --violet: #6E3FF2;
+    --violet-soft: #EDE6FE;
+    --card-bg: #ffffff;
+    --nav-bg: rgba(255, 255, 255, 0.85);
+    --serif: 'Fraunces', serif;
+    --sans: 'Work Sans', sans-serif;
+    --mono: 'JetBrains Mono', monospace;
+  }
+  html[data-theme="dark"] {
+    --sand: #1C1A17;
+    --dot: #322F2A;
+    --ink: #F4EFE6;
+    --ink-soft: #A39E94;
+    --line: #3A3631;
+    --violet: #B7A6FB;
+    --violet-soft: #2E2750;
+    --card-bg: #25221F;
+    --nav-bg: rgba(28, 26, 23, 0.85);
+  }
+  html { scroll-behavior: smooth; }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: var(--sans);
+    background-color: var(--sand);
+    background-image: radial-gradient(circle, var(--dot) 1px, transparent 1px);
+    background-size: 24px 24px;
+    color: var(--ink);
+    line-height: 1.6;
+    font-size: 16px;
+    transition: background-color 0.2s ease, color 0.2s ease;
+  }
+
+  /* NAV */
+  nav {
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    max-width: 1040px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.25rem 1.5rem;
+    font-family: var(--mono);
+    font-size: 0.85rem;
+    background: var(--nav-bg);
+    backdrop-filter: blur(6px);
+    border-bottom: 1px solid transparent;
+    transition: border-color 0.2s ease;
+  }
+  nav .logo { font-weight: 500; text-transform: lowercase; }
+  nav .links { display: flex; gap: 1.5rem; }
+  nav a { color: var(--ink-soft); text-decoration: none; text-transform: lowercase; }
+  nav a:hover { color: var(--violet); }
+  nav a::before { content: '['; color: var(--ink-soft); opacity: 0.4; }
+  nav a::after { content: ']'; color: var(--ink-soft); opacity: 0.4; }
+
+  .theme-toggle {
+    font-family: var(--mono);
+    font-size: 0.85rem;
+    color: var(--ink-soft);
+    text-transform: lowercase;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+  }
+  .theme-toggle:hover { color: var(--violet); }
+
+  .wrap { max-width: 1040px; margin: 0 auto; padding: 0 1.5rem 4rem; }
+
+  /* HERO — floating card */
+  .hero-card {
+    padding: 2rem 0;
+    margin: 1.5rem 0 3rem;
+    display: grid;
+    grid-template-columns: 1fr 220px;
+    gap: 2rem;
+    align-items: center;
+  }
+
+  .hero-sketch {
+    justify-self: center;
+    width: 100%;
+    max-width: 220px;
+  }
+  .polaroid {
+    background: var(--card-bg);
+    border: 1px solid var(--line);
+    border-radius: 4px;
+    padding: 10px 10px 32px;
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.12);
+    transform: rotate(3deg);
+    position: relative;
+  }
+  .polaroid img {
+    display: block;
+    width: 100%;
+    border-radius: 2px;
+  }
+  .polaroid::after {
+    content: '';
+    position: absolute;
+    width: 50px;
+    height: 18px;
+    background: rgba(110, 63, 242, 0.25);
+    top: -8px;
+    left: calc(50% - 25px);
+    border-radius: 2px;
+    transform: rotate(-4deg);
+  }
+  .polaroid.tape-yellow::after {
+    background: rgba(244, 208, 63, 0.45);
+  }
+
+  .about-content {
+    display: grid;
+    grid-template-columns: 1fr 220px;
+    gap: 2rem;
+    align-items: start;
+  }
+  .about-sketch {
+    width: 100%;
+    max-width: 220px;
+    justify-self: center;
+  }
+  .about-sketch .polaroid {
+    transform: rotate(-2.5deg);
+  }
+
+  .hero-eyebrow,
+  .section-num,
+  .footer-chip {
+    display: inline-block;
+    font-family: var(--mono);
+    font-size: 0.8rem;
+    color: var(--violet);
+    text-transform: lowercase;
+    background: var(--violet-soft);
+    padding: 0.25rem 0.7rem;
+    border-radius: 6px;
+    transform: rotate(0.6deg);
+  }
+  .hero-eyebrow { margin-bottom: 1.5rem; }
+  .hero-eyebrow::before, .section-num::before, .footer-chip::before { content: '['; }
+  .hero-eyebrow::after, .section-num::after, .footer-chip::after { content: ']'; }
+
+  h1 {
+    font-family: var(--serif);
+    font-weight: 900;
+    font-size: clamp(2.4rem, 6.5vw, 4rem);
+    line-height: 1.15;
+    margin-bottom: 1.5rem;
+    letter-spacing: -0.01em;
+    max-width: 22ch;
+  }
+  h1 .accent { color: var(--violet); position: relative; }
+  h1 .accent::after {
+    content: '';
+    position: absolute;
+    left: -2%;
+    right: -2%;
+    bottom: 0.05em;
+    height: 0.28em;
+    background: var(--violet-soft);
+    z-index: -1;
+    border-radius: 3px;
+  }
+
+  .hero-sub {
+    font-size: 1.05rem;
+    color: var(--ink-soft);
+    max-width: 50ch;
+    margin-bottom: 1.75rem;
+  }
+
+  .hero-cta {
+    display: flex;
+    gap: 0.75rem;
+    flex-wrap: wrap;
+  }
+  .hero-cta a {
+    font-family: var(--mono);
+    font-size: 0.85rem;
+    text-transform: lowercase;
+    text-decoration: none;
+    padding: 0.6rem 1.2rem;
+    border-radius: 6px;
+    transition: all 0.15s ease;
+  }
+  .hero-cta .cta-primary {
+    background: var(--violet);
+    color: #ffffff;
+  }
+  .hero-cta .cta-primary:hover {
+    opacity: 0.88;
+  }
+  .hero-cta .cta-secondary {
+    background: transparent;
+    color: var(--ink);
+    border: 1px solid var(--line);
+  }
+  .hero-cta .cta-secondary:hover {
+    border-color: var(--violet);
+    color: var(--violet);
+  }
+
+  /* SECTION LABEL — sticky note style */
+  .section-label-wrap {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin: 3rem 0 1.5rem;
+  }
+  .section-title {
+    font-family: var(--serif);
+    font-weight: 900;
+    font-size: clamp(1.5rem, 4vw, 2rem);
+  }
+
+  /* CASE STUDIES — cards on the board */
+  .case-list {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0;
+    border-top: 1px solid var(--line);
+    border-bottom: 1px solid var(--line);
+  }
+
+  .case {
+    border: none;
+    border-right: 1px solid var(--line);
+    border-radius: 0;
+    padding: 1.75rem 1.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    text-decoration: none;
+    color: inherit;
+    transition: background 0.15s ease, border-color 0.15s ease;
+    min-height: auto;
+  }
+  .case:last-child { border-right: none; }
+  .case:nth-child(1), .case:nth-child(2), .case:nth-child(3) { transform: none; }
+  .case:hover {
+    transform: none;
+    background: var(--violet-soft);
+  }
+  .case:hover .case-title { color: var(--violet); }
+  .case:hover .case-arrow { opacity: 1; transform: translateX(4px); }
+
+  .case-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+  }
+
+  .case-index {
+    font-family: var(--mono);
+    font-size: 0.8rem;
+    color: var(--ink-soft);
+  }
+
+  .case-title {
+    font-family: var(--serif);
+    font-weight: 900;
+    font-size: 1.25rem;
+    line-height: 1.3;
+    transition: color 0.15s ease;
+  }
+  .case-metric {
+    display: inline-block;
+    font-family: var(--mono);
+    font-size: 0.8rem;
+    font-weight: 500;
+    color: var(--violet);
+    background: var(--violet-soft);
+    padding: 0.2rem 0.6rem;
+    border-radius: 4px;
+    margin-top: 0.5rem;
+  }
+  .case-tags {
+    margin-top: auto;
+    display: flex;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+  }
+  .case-tag {
+    font-family: var(--mono);
+    font-size: 0.72rem;
+    color: var(--ink-soft);
+    text-transform: lowercase;
+    border: 1px solid var(--line);
+    border-radius: 4px;
+    padding: 0.15rem 0.5rem;
+  }
+
+  .case-arrow {
+    font-family: var(--mono);
+    font-size: 0.85rem;
+    color: var(--ink-soft);
+    text-transform: lowercase;
+    opacity: 0.5;
+    transition: all 0.15s ease;
+    align-self: flex-start;
+  }
+  .case-arrow::before { content: '['; }
+  .case-arrow::after { content: ']'; }
+
+  /* COMING SOON CARDS */
+  .case.coming-soon {
+    cursor: default;
+    position: relative;
+  }
+  .case.coming-soon:hover { background: none; }
+  .case.coming-soon:hover .case-title { color: var(--ink); }
+  .case.coming-soon .case-blur {
+    filter: blur(6px);
+    user-select: none;
+    pointer-events: none;
+  }
+  .case.coming-soon .coming-soon-label {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: var(--mono);
+    font-size: 0.85rem;
+    color: var(--ink-soft);
+    text-transform: lowercase;
+    background: var(--sand);
+    opacity: 0.85;
+  }
+  .case.coming-soon .coming-soon-label::before { content: '['; opacity: 0.4; }
+  .case.coming-soon .coming-soon-label::after { content: ']'; opacity: 0.4; }
+
+  /* PLAYGROUND TEASER — dashed sticky note */
+  .playground {
+    border: none;
+    border-radius: 0;
+    padding: 1.25rem 0;
+    display: flex;
+    align-items: center;
+    gap: 1.25rem;
+    margin-top: 0;
+    transform: none;
+  }
+  .playground-title {
+    font-family: var(--serif);
+    font-weight: 900;
+    font-size: 1.1rem;
+    color: var(--ink-soft);
+  }
+  .playground-note {
+    font-family: var(--mono);
+    font-size: 0.78rem;
+    color: var(--ink-soft);
+    text-transform: lowercase;
+    margin-top: 0.3rem;
+  }
+
+  /* ABOUT + TIMELINE */
+  .about-section {
+    margin-top: 4rem;
+    padding-top: 1rem;
+  }
+  .about-text {
+    max-width: 62ch;
+    margin-bottom: 2.5rem;
+  }
+  .about-text p {
+    font-size: 1.02rem;
+    color: var(--ink-soft);
+    margin-bottom: 1.1rem;
+  }
+  .about-text strong { color: var(--ink); font-weight: 500; }
+
+  .timeline {
+    border-top: 1px solid var(--line);
+  }
+  .entry {
+    display: grid;
+    grid-template-columns: 140px 1fr;
+    gap: 1.5rem;
+    padding: 1.6rem 0;
+    border-bottom: 1px solid var(--line);
+  }
+  .entry:last-child { border-bottom: none; }
+  .entry-period {
+    font-family: var(--mono);
+    font-size: 0.8rem;
+    color: var(--ink-soft);
+    text-transform: lowercase;
+    padding-top: 0.2rem;
+  }
+  .entry-role {
+    font-family: var(--serif);
+    font-weight: 900;
+    font-size: 1.15rem;
+    line-height: 1.3;
+    margin-bottom: 0.5rem;
+  }
+  .entry-role .at { color: var(--violet); }
+  .entry-desc {
+    font-size: 0.95rem;
+    color: var(--ink-soft);
+    max-width: 56ch;
+  }
+  .margin-note {
+    margin-top: 0.6rem;
+    font-family: var(--mono);
+    font-size: 0.78rem;
+    color: var(--violet);
+    text-transform: lowercase;
+  }
+  .margin-note::before { content: '['; opacity: 0.5; }
+  .margin-note::after { content: ']'; opacity: 0.5; }
+
+  /* FOOTER */
+  footer {
+    margin-top: 3rem;
+    background: transparent;
+    border: none;
+    border-top: 1px solid var(--line);
+    border-radius: 0;
+    padding: 2.5rem 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+    transform: none;
+  }
+  .footer-chip { margin-bottom: 1rem; }
+  .footer-tagline {
+    font-family: var(--serif);
+    font-weight: 900;
+    font-size: clamp(1.4rem, 4vw, 2rem);
+    max-width: 20ch;
+  }
+  .footer-tagline .accent { color: var(--violet); }
+
+  .footer-links {
+    display: flex;
+    gap: 1.5rem;
+    font-family: var(--mono);
+    font-size: 0.85rem;
+  }
+  .footer-links a { color: var(--ink-soft); text-decoration: none; text-transform: lowercase; }
+  .footer-links a:hover { color: var(--violet); }
+  .footer-links a::before { content: '['; opacity: 0.4; }
+  .footer-links a::after { content: ']'; opacity: 0.4; }
+
+  .footer-meta {
+    font-family: var(--mono);
+    font-size: 0.75rem;
+    color: var(--ink-soft);
+    width: 100%;
+    padding-top: 1.5rem;
+    border-top: 1px dashed var(--line);
+    text-transform: lowercase;
+  }
+
+  @media (max-width: 860px) {
+    .case-list { grid-template-columns: 1fr 1fr; }
+    .case:nth-child(2n) { border-right: none; }
+    .case:nth-child(1), .case:nth-child(2) { border-bottom: 1px solid var(--line); }
+  }
+
+  @media (max-width: 640px) {
+    nav { flex-direction: column; gap: 1rem; align-items: flex-start; }
+    nav .links { gap: 1rem; flex-wrap: wrap; }
+    .hero-card { padding: 1.5rem 0; grid-template-columns: 1fr; gap: 1.5rem; }
+    .hero-sketch { max-width: 160px; order: -1; justify-self: flex-start; }
+    .case-list { grid-template-columns: 1fr; }
+    .case { border-right: none !important; border-bottom: 1px solid var(--line); transform: none !important; }
+    .case:last-child { border-bottom: none; }
+    .entry { grid-template-columns: 1fr; gap: 0.4rem; }
+    .about-content { grid-template-columns: 1fr; gap: 1.5rem; }
+    .about-sketch { max-width: 160px; order: -1; justify-self: flex-start; }
+    .playground { flex-direction: column; align-items: flex-start; transform: none; }
+    footer { padding: 2rem 0; flex-direction: column; align-items: flex-start; transform: none; }
+  }
+</style>
+</head>
+<body>
+  <nav>
+    <span class="logo">federica cutrera</span>
+    <div class="links">
+      <a href="#work">progetti</a>
+      <a href="#about">chi sono</a>
+      <a href="#footer">contatti</a>
+      <button class="theme-toggle" id="theme-toggle" aria-label="cambia tema">[dark]</button>
+    </div>
+  </nav>
+
+  <div class="wrap">
+    <!-- HERO -->
+    <div class="hero-card">
+      <div>
+        <span class="hero-eyebrow">product designer + ai</span>
+        <h1>Faccio design dal 2016. Ho visto morire abbastanza trend da fidarmi <span class="accent">solo dei dati</span>.</h1>
+        <p class="hero-sub">Dati, ricerca e AI: progetto prodotti end-to-end, dalla discovery al delivery. (Che ogni tanto vibecodo :)) Curiosa per natura, pragmatica per mestiere.</p>
+        <div class="hero-cta">
+          <a href="#work" class="cta-primary">guarda i progetti</a>
+          <a href="#about" class="cta-secondary">la mia esperienza</a>
+        </div>
+      </div>
+      <div class="hero-sketch">
+        <div class="polaroid">
+          <img src="sketch-upscaled.png" alt="Sketch a penna, autoritratto stilizzato">
+        </div>
+      </div>
+    </div>
+
+    <!-- CASE STUDIES -->
+    <div class="section-label-wrap" id="work">
+      <span class="section-num">work</span>
+      <h2 class="section-title">Casi studio selezionati</h2>
+    </div>
+
+    <div class="case-list">
+
+      <a href="case-bonusx.html" class="case">
+        <div class="case-top">
+          <span class="case-index">01</span>
+          <span class="case-arrow">leggi</span>
+        </div>
+        <h3 class="case-title">Vibecoding un design system end-to-end @ BonusX</h3>
+        <span class="case-metric">95% completion rate</span>
+        <div class="case-tags">
+          <span class="case-tag">research</span>
+          <span class="case-tag">ai workflow</span>
+          <span class="case-tag">design system</span>
+        </div>
+      </a>
+
+      <div class="case coming-soon">
+        <div class="case-blur">
+          <div class="case-top">
+            <span class="case-index">02</span>
+            <span class="case-arrow">leggi</span>
+          </div>
+          <h3 class="case-title">Design per il banking, senza perdere lo stakeholder @ UniCredit</h3>
+          <span class="case-metric">[metrica da definire]</span>
+          <div class="case-tags">
+            <span class="case-tag">enterprise</span>
+            <span class="case-tag">user flow</span>
+            <span class="case-tag">hi-fi ui</span>
+          </div>
+        </div>
+        <div class="coming-soon-label">coming soon</div>
+      </div>
+
+      <div class="case coming-soon">
+        <div class="case-blur">
+          <div class="case-top">
+            <span class="case-index">03</span>
+            <span class="case-arrow">leggi</span>
+          </div>
+          <h3 class="case-title">Lusso e mobile commerce: il lancio Panerai</h3>
+          <span class="case-metric">[metrica da definire]</span>
+          <div class="case-tags">
+            <span class="case-tag">e-commerce</span>
+            <span class="case-tag">brand</span>
+            <span class="case-tag">mobile-first</span>
+          </div>
+        </div>
+        <div class="coming-soon-label">coming soon</div>
+      </div>
+
+    </div>
+
+    <!-- PLAYGROUND TEASER (opzionale, da valutare) -->
+    <div class="playground">
+      <span class="case-index">+</span>
+      <div>
+        <p class="playground-title">Playground</p>
+        <p class="playground-note">[esperimenti ai/vibecoding — in arrivo]</p>
+      </div>
+    </div>
+
+    <!-- ABOUT + TIMELINE -->
+    <div class="about-section" id="about">
+      <div class="section-label-wrap">
+        <span class="section-num">about</span>
+        <h2 class="section-title">Chi sono</h2>
+      </div>
+
+      <div class="about-content">
+        <div class="about-text">
+          <p>Combino intuizione umana e workflow AI-augmented per accelerare il design end-to-end &mdash; dati qual/quant, ricerca, UX/UI full-stack, dai workshop ai modern handoff (s&igrave;, anche <strong>MCP, Claude CLI</strong>, e il buon vecchio Figma).</p>
+          <p>Ho un GitHub pieno di quadratini verdi perch&eacute; il vibecoding lo faccio davvero. ARPU, LTV e CRO non sono parole astratte: sono parte di come penso il design, perch&eacute; il prodotto deve funzionare per chi lo usa e per chi lo fa esistere.</p>
+          <p>Sono sopravvissuta fin qui considerando che ho iniziato a progettare prodotti digitali quando Adobe XD era ancora considerato lo strumento &ldquo;all&rsquo;avanguardia&rdquo;. Se non altro, questo mi ha insegnato ad adattarmi &mdash; che si tratti di lusso digitale per <strong>Panerai</strong>, prodotti bancari per <strong>UniCredit</strong>, o vibecoding veloce nelle trincee di una startup.</p>
+        </div>
+        <div class="about-sketch">
+          <div class="polaroid tape-yellow">
+            <img src="sketch-about.png" alt="Sketch a penna, illustrazione di saluto">
+          </div>
+        </div>
+      </div>
+
+      <div class="timeline">
+        <div class="entry">
+          <div class="entry-period">giu 2025<br>— presente</div>
+          <div>
+            <h3 class="entry-role">Product Designer + AI <span class="at">@</span> BonusX</h3>
+            <p class="entry-desc">Ricerca + Design + AI. Progetti end-to-end per individuare friction point, allineare obiettivi di business e validare soluzioni con dati qual/quant. Stack Figma + MCP + Claude CLI + Cursor.</p>
+          </div>
+        </div>
+        <div class="entry">
+          <div class="entry-period">nov 2023<br>— giu 2025</div>
+          <div>
+            <h3 class="entry-role">UI/UX Designer · Consultant <span class="at">@</span> Be | Shaping the Future</h3>
+            <p class="entry-desc">Cliente UniCredit. Design end-to-end per prodotti bancari, gestione stakeholder internazionali, user flow, IA, wireframe e UI hi-fi.</p>
+          </div>
+        </div>
+        <div class="entry">
+          <div class="entry-period">set 2021<br>— nov 2023</div>
+          <div>
+            <h3 class="entry-role">UI/UX Designer <span class="at">@</span> Cloudmind</h3>
+            <p class="entry-desc">Product design end-to-end su progetti B2B e B2C, tra metodologie user-centered e pattern CRO. Discovery, benchmarking, user testing.</p>
+          </div>
+        </div>
+        <div class="entry">
+          <div class="entry-period">mag 2016<br>— set 2021</div>
+          <div>
+            <h3 class="entry-role">Digital Art Director | UI/UX Designer <span class="at">@</span> IM*MEDIA</h3>
+            <p class="entry-desc">Mobile e-commerce per Panerai &mdash; design e supporto on-site al lancio presso Richemont in Svizzera. UI/UX e art direction per Molinari, Vileda, Haribo.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- FOOTER -->
+    <footer id="footer">
+      <div>
+        <span class="footer-chip">contatti</span>
+        <p class="footer-tagline">Parliamo del prossimo <span class="accent">problema interessante</span>.</p>
+      </div>
+      <div class="footer-links">
+        <a href="https://www.linkedin.com/in/federica-cutrera" target="_blank">linkedin</a>
+        <a href="mailto:hello@example.com">let's chat</a>
+      </div>
+      <div class="footer-meta">federica cutrera, 2026</div>
+    </footer>
+  </div>
+  <script>
+    const nav = document.querySelector('nav');
+    window.addEventListener('scroll', () => {
+      nav.style.borderColor = window.scrollY > 8 ? 'var(--line)' : 'transparent';
+    });
+
+    const toggle = document.getElementById('theme-toggle');
+    const root = document.documentElement;
+    function applyTheme(theme) {
+      root.setAttribute('data-theme', theme);
+      toggle.textContent = theme === 'dark' ? '☀️ light' : '🌚 dark';
+    }
+    const saved = localStorage.getItem('theme') || 'light';
+    applyTheme(saved);
+    toggle.addEventListener('click', () => {
+      const current = root.getAttribute('data-theme') === 'dark' ? 'dark' : 'light';
+      const next = current === 'dark' ? 'light' : 'dark';
+      localStorage.setItem('theme', next);
+      applyTheme(next);
+    });
+  </script>
+</body>
+</html>
