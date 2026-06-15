@@ -573,7 +573,7 @@
 
   @media (max-width: 640px) {
     .hamburger { display: block; }
-    nav .links { display: none; position: fixed; left: 0; right: 0; background: var(--nav-bg); backdrop-filter: blur(6px); border-bottom: 1px solid var(--line); flex-direction: column; padding: 1rem 1.5rem; gap: 1rem; z-index: 9; }
+    nav .links { display: none; position: fixed; left: 0; right: 0; background: var(--sand); border-bottom: 1px solid var(--line); flex-direction: column; padding: 1rem 1.5rem; gap: 1rem; z-index: 9; }
     nav .links.open { display: flex; }
     .hero-card { padding: 1.5rem 0; grid-template-columns: 1fr; gap: 1.5rem; }
     .hero-sketch { max-width: 160px; order: -1; justify-self: flex-start; }
@@ -812,6 +812,12 @@
       } else {
         hamburger.textContent = '[menu]';
       }
+    });
+    navLinks.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', () => {
+        navLinks.classList.remove('open');
+        hamburger.textContent = '[menu]';
+      });
     });
 
     // lang toggle
