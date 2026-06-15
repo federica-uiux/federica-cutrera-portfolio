@@ -289,14 +289,45 @@
     border: none;
     border-right: 1px solid var(--line);
     border-radius: 0;
-    padding: 1.75rem 1.5rem;
+    padding: 0;
     display: flex;
     flex-direction: column;
-    gap: 1rem;
+    gap: 0;
     text-decoration: none;
     color: inherit;
     transition: background 0.15s ease, border-color 0.15s ease;
     min-height: auto;
+    overflow: hidden;
+  }
+  .case-thumb {
+    width: 100%;
+    height: 180px;
+    overflow: hidden;
+    background: var(--card-bg);
+    border-bottom: 1px solid var(--line);
+  }
+  .case-thumb img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: top center;
+    display: block;
+    transition: transform 0.3s ease;
+  }
+  .case:hover .case-thumb img { transform: scale(1.03); }
+  .case-thumb-empty {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .case-body {
+    padding: 1.75rem 1.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    flex: 1;
   }
   .case:last-child { border-right: none; }
   .case:nth-child(1), .case:nth-child(2), .case:nth-child(3) { transform: none; }
@@ -593,43 +624,56 @@
     <div class="case-list">
 
       <a href="case-bonusx.html" class="case">
-        <div class="case-top">
-          <span class="case-index">01</span>
-          <span class="case-arrow">leggi</span>
+        <div class="case-thumb">
+          <img src="thumbnail_bonusx.jpg" alt="Anteprima case study BonusX">
         </div>
-        <h3 class="case-title">Profilo BonusX: 95% completion rate</h3>
-        <div class="case-tags">
-          <span class="case-tag">research</span>
-          <span class="case-tag">ai workflow</span>
-          <span class="case-tag">design system</span>
+        <div class="case-body">
+          <div class="case-top">
+            <span class="case-index">01</span>
+            <span class="case-arrow">leggi</span>
+          </div>
+          <h3 class="case-title">Profilo BonusX: 95% completion rate</h3>
+          <div class="case-tags">
+            <span class="case-tag">research</span>
+            <span class="case-tag">ai workflow</span>
+            <span class="case-tag">design system</span>
+          </div>
         </div>
       </a>
 
       <a href="case-voip-restyle.html" class="case">
-        <div class="case-top">
-          <span class="case-index">02</span>
-          <span class="case-arrow">leggi</span>
+        <div class="case-thumb">
+          <img src="thumbnail_voip.jpg" alt="Anteprima case study VoIP">
         </div>
-        <h3 class="case-title">Restyle UX/UI VoIP B2B: -45% sul time on task</h3>
-        <div class="case-tags">
-          <span class="case-tag">ux research</span>
-          <span class="case-tag">contextual inquiry</span>
-          <span class="case-tag">design system</span>
+        <div class="case-body">
+          <div class="case-top">
+            <span class="case-index">02</span>
+            <span class="case-arrow">leggi</span>
+          </div>
+          <h3 class="case-title">Restyle UX/UI VoIP B2B: -45% sul time on task</h3>
+          <div class="case-tags">
+            <span class="case-tag">ux research</span>
+            <span class="case-tag">contextual inquiry</span>
+            <span class="case-tag">design system</span>
+          </div>
         </div>
       </a>
 
       <div class="case coming-soon">
         <div class="case-blur">
-          <div class="case-top">
-            <span class="case-index">03</span>
-            <span class="case-arrow">leggi</span>
-          </div>
-          <h3 class="case-title">Lusso e mobile commerce: il lancio Panerai</h3>
-          <span class="case-metric">[metrica da definire]</span>
-          <div class="case-tags">
-            <span class="case-tag">e-commerce</span>
-            <span class="case-tag">brand</span>
-            <span class="case-tag">mobile-first</span>
+          <div class="case-thumb case-thumb-empty"></div>
+          <div class="case-body">
+            <div class="case-top">
+              <span class="case-index">03</span>
+              <span class="case-arrow">leggi</span>
+            </div>
+            <h3 class="case-title">Lusso e mobile commerce: il lancio Panerai</h3>
+            <span class="case-metric">[metrica da definire]</span>
+            <div class="case-tags">
+              <span class="case-tag">e-commerce</span>
+              <span class="case-tag">brand</span>
+              <span class="case-tag">mobile-first</span>
+            </div>
           </div>
         </div>
         <div class="coming-soon-label">coming soon</div>
