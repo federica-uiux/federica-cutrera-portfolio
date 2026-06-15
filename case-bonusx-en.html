@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="it">
+<html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Profilo BonusX — Federica Cutrera</title>
+<title>BonusX Profile — Federica Cutrera</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,900&family=Work+Sans:wght@400;500&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
@@ -52,7 +52,6 @@
     transition: background-color 0.2s ease, color 0.2s ease;
   }
 
-  /* NAV */
   nav {
     position: sticky;
     top: 0;
@@ -77,7 +76,6 @@
   nav a:hover { color: var(--violet); }
   nav a::before { content: '['; color: var(--ink-soft); opacity: 0.4; }
   nav a::after { content: ']'; color: var(--ink-soft); opacity: 0.4; }
-
   .theme-toggle, .hamburger {
     font-family: var(--mono);
     font-size: 0.85rem;
@@ -93,10 +91,7 @@
 
   .wrap { max-width: 1040px; margin: 0 auto; padding: 0 1.5rem 4rem; }
 
-  /* CASE HERO */
-  .case-hero {
-    padding: 2.5rem 0 2rem;
-  }
+  .case-hero { padding: 2.5rem 0 2rem; }
   .back-link {
     display: inline-block;
     font-family: var(--mono);
@@ -134,14 +129,12 @@
     letter-spacing: -0.01em;
     max-width: 24ch;
   }
-
   .case-hero-sub {
     font-size: 1.05rem;
     color: var(--ink-soft);
     max-width: 60ch;
   }
 
-  /* LAYOUT */
   .content-grid {
     display: grid;
     grid-template-columns: 1fr 280px;
@@ -174,10 +167,7 @@
   .section-num::before { content: '['; }
   .section-num::after { content: ']'; }
 
-  .section-block {
-    margin-bottom: 3rem;
-  }
-
+  .section-block { margin-bottom: 3rem; }
   .section-block h2 {
     font-family: var(--serif);
     font-weight: 900;
@@ -227,50 +217,6 @@
     font-style: italic;
   }
 
-  .img-placeholder {
-    border: 1px dashed var(--line);
-    border-radius: 8px;
-    background: var(--card-bg);
-    padding: 3rem 1.5rem;
-    margin: 1.5rem 0;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    gap: 0.4rem;
-    text-align: center;
-  }
-  .img-placeholder-label {
-    font-family: var(--mono);
-    font-size: 0.78rem;
-    color: var(--violet);
-    text-transform: lowercase;
-  }
-  .img-placeholder-note {
-    font-family: var(--mono);
-    font-size: 0.72rem;
-    color: var(--ink-soft);
-    text-transform: lowercase;
-  }
-  .img-placeholder.wide { max-width: 100%; }
-  .img-placeholder.row {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 1rem;
-    padding: 1.5rem;
-  }
-  .img-placeholder.row .img-cell {
-    border: 1px dashed var(--line);
-    border-radius: 6px;
-    padding: 2.5rem 1rem;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    gap: 0.3rem;
-    text-align: center;
-  }
-
   .case-img {
     display: block;
     width: 100%;
@@ -301,27 +247,15 @@
     cursor: zoom-out;
   }
   .lightbox.open { display: flex; }
-  .lightbox img {
-    max-width: 100%;
-    max-height: 100%;
-    border-radius: 8px;
-  }
+  .lightbox img { max-width: 100%; max-height: 100%; border-radius: 8px; }
 
   .full-bleed-img-wrap {
     margin: 3rem 0 0;
     padding-top: 2.5rem;
     border-top: 1px solid var(--line);
   }
-  .full-bleed-img-wrap .case-img {
-    margin-bottom: 1.5rem;
-  }
-  .full-bleed-img-wrap .case-img-caption {
-    margin-top: 0;
-  }
-
-  @media (max-width: 640px) {
-    .img-placeholder.row { grid-template-columns: 1fr; }
-  }
+  .full-bleed-img-wrap .case-img { margin-bottom: 1.5rem; }
+  .full-bleed-img-wrap .case-img-caption { margin-top: 0; }
 
   /* SIDEBAR */
   .sidebar {
@@ -361,7 +295,6 @@
   }
   .sidebar-metric:last-of-type,
   .sidebar-metric-label:last-of-type { margin-bottom: 0; }
-
   .sidebar-tags { display: flex; gap: 0.5rem; flex-wrap: wrap; }
   .sidebar-tag {
     font-family: var(--mono);
@@ -372,7 +305,6 @@
     border-radius: 4px;
     padding: 0.15rem 0.5rem;
   }
-
   .sidebar-meta-row {
     display: flex;
     justify-content: space-between;
@@ -384,7 +316,6 @@
   .sidebar-meta-row span:first-child { color: var(--ink-soft); }
   .sidebar-meta-row span:last-child { font-weight: 500; }
 
-  /* FOOTER NAV (next case) */
   .next-case {
     border-top: 1px solid var(--line);
     margin-top: 2rem;
@@ -421,7 +352,6 @@
     .sidebar { position: static; flex-direction: row; flex-wrap: wrap; }
     .sidebar-block { flex: 1 1 220px; }
   }
-
   @media (max-width: 640px) {
     .hamburger { display: block; }
     nav .links { display: none; position: fixed; left: 0; right: 0; background: var(--nav-bg); backdrop-filter: blur(6px); border-bottom: 1px solid var(--line); flex-direction: column; padding: 1rem 1.5rem; gap: 1rem; z-index: 9; }
@@ -435,114 +365,111 @@
 </head>
 <body>
   <nav>
-    <a href="index.html" class="logo" style="text-decoration:none;">federica cutrera</a>
+    <a href="index-en.html" class="logo" style="text-decoration:none;">federica cutrera</a>
     <div class="nav-right">
       <div class="links" id="nav-links">
-        <a href="index.html#work">progetti</a>
-        <a href="index.html#about">chi sono</a>
-        <a href="index.html#footer">contatti</a>
+        <a href="index-en.html#work">work</a>
+        <a href="index-en.html#about">about</a>
+        <a href="index-en.html#footer">contact</a>
       </div>
-      <a href="case-bonusx-en.html" class="lang-toggle" id="lang-toggle">en</a>
-      <button class="theme-toggle" id="theme-toggle" aria-label="cambia tema">🌚 dark</button>
-      <button class="hamburger" id="hamburger" aria-label="apri menu">[menu]</button>
+      <a href="case-bonusx.html" class="lang-toggle" id="lang-toggle">it</a>
+      <button class="theme-toggle" id="theme-toggle" aria-label="toggle theme">🌚 dark</button>
+      <button class="hamburger" id="hamburger" aria-label="open menu">[menu]</button>
     </div>
   </nav>
 
   <div class="wrap">
-    <!-- CASE HERO -->
     <div class="case-hero">
-      <a href="index.html#work" class="back-link">torna ai progetti</a>
+      <a href="index-en.html#work" class="back-link">back to projects</a>
       <span class="case-eyebrow">product design · ux research · ai workflow</span>
-      <h1>Profilo BonusX: un redesign scalabile che ha portato il completamento al 95%</h1>
-      <p class="case-hero-sub">Come un redesign dell'architettura del profilo utente — pensato per accogliere ciò che ancora non esisteva — ha trasformato un friction point cronico in un sistema che scala da solo.</p>
+      <h1>BonusX Profile: a scalable redesign that brought completion to 95%</h1>
+      <p class="case-hero-sub">How a redesign of the user profile architecture — built to accommodate what didn't exist yet — turned a chronic friction point into a system that scales itself.</p>
     </div>
 
-    <!-- CONTENT GRID -->
     <div class="content-grid">
       <div class="main-col">
 
         <div class="section-block">
-          <span class="section-num">contesto</span>
-          <p>BonusX aiuta le persone in Italia a capire a quali <strong>bonus e agevolazioni</strong> hanno diritto. Il <strong>profilo utente</strong> &mdash; dati personali, nucleo familiare, situazione economica &mdash; &egrave; il cuore del prodotto: ogni richiesta di bonus si basa su queste informazioni.</p>
-          <p>Il profilo precedente evidenziava un importante <strong>friction point</strong> che causava <strong>drop rate</strong>: gli utenti dovevano spesso completare intere sezioni di questionario anche solo per modificare un singolo dato. I dati del <strong>nucleo familiare</strong>, in particolare, erano spezzati in <strong>due questionari separati</strong> e diversi tra loro.</p>
-          <p>Entro i primi 3 mesi del mio ingresso in BonusX, una domanda era gi&agrave; chiara: <em>&ldquo;cosa succederebbe se il profilo chiedesse solo quello che serve, quando serve?&rdquo;</em> Ho iniziato subito a entrare nel dominio e a progettare una soluzione &mdash; sapendo che il progetto era grande, e che l&rsquo;avremmo consegnato nell&rsquo;arco di <strong>2 quarter</strong>.</p>
+          <span class="section-num">context</span>
+          <p>BonusX helps people in Italy understand which government bonuses and benefits they&rsquo;re entitled to. The <strong>user profile</strong> &mdash; personal data, household members, financial situation &mdash; is the core of the product: every bonus application is based on this information.</p>
+          <p>The previous profile had a significant <strong>friction point</strong> causing <strong>drop rate</strong>: users often had to complete entire questionnaire sections just to update a single field. Household data, in particular, was split across <strong>two separate questionnaires</strong> with different structures.</p>
+          <p>Within my first 3 months at BonusX, one question was already clear: <em>&ldquo;What if the profile only asked for what&rsquo;s needed, when it&rsquo;s needed?&rdquo;</em> I started exploring the domain and designing a solution &mdash; knowing this was a large project that would ship across <strong>2 quarters</strong>.</p>
 
-          <img src="img-legacy-vs-new.png" alt="Confronto tra il profilo legacy e il nuovo profilo BonusX" class="case-img" onclick="openLightbox(this.src)">
+          <img src="img-legacy-vs-new.png" alt="Comparison between legacy profile and new BonusX profile" class="case-img" onclick="openLightbox(this.src)">
           <span class="case-img-caption">legacy profile vs new profile</span>
         </div>
 
         <div class="section-block">
-          <span class="section-num">risultato</span>
+          <span class="section-num">results</span>
           <ul class="result-list">
-            <li>Nuovo tasso di completamento dell&rsquo;onboarding: <strong>95%</strong></li>
-            <li>Conversione alle iscrizioni passata dal <strong>~5% al ~10%</strong></li>
-            <li>Tempo di richiesta ridotto fino al <strong>50%</strong> per i servizi principali</li>
-            <li>Le nuove categorie/entit&agrave; arrivate nei trimestri successivi si sono inserite nei pattern esistenti <strong>senza refactor di UI o codice</strong> &mdash; la scelta di progettare per la scalabilit&agrave; si &egrave; rivelata corretta</li>
+            <li>New onboarding completion rate: <strong>95%</strong></li>
+            <li>Sign-up conversion went from <strong>~5% to ~10%</strong></li>
+            <li>Request time reduced by up to <strong>50%</strong> for key services</li>
+            <li>New categories and entities added in subsequent quarters fit into existing patterns <strong>without UI or code refactors</strong> &mdash; the bet on scalability paid off</li>
           </ul>
         </div>
 
         <div class="section-block">
-          <span class="section-num">il mio ruolo</span>
-          <p><strong>UX/UI design end-to-end</strong> sulla nuova architettura del profilo, con focus su <strong>flussi dinamici</strong>, <strong>family data</strong> e &mdash; soprattutto &mdash; un design pensato per <strong>scalare</strong>: la roadmap prevedeva nuove categorie ed entit&agrave; nei trimestri successivi, quindi ogni schermata doveva poter &ldquo;accogliere&rdquo; funzionalit&agrave; non ancora definite.</p>
+          <span class="section-num">my role</span>
+          <p><strong>UX/UI design end-to-end</strong> on the new profile architecture, focused on <strong>dynamic flows</strong>, <strong>family data</strong>, and &mdash; above all &mdash; a design built to <strong>scale</strong>: the roadmap included new data categories in upcoming quarters, so every screen had to be able to &ldquo;accommodate&rdquo; features not yet defined.</p>
         </div>
 
         <div class="section-block">
-          <span class="section-num">collaborazione cross-team</span>
-          <p>Un progetto di questa portata non si disegna da solo. La <strong>Product Lead</strong> ha gestito l&rsquo;architettura complessiva e la roadmap di rilascio a fasi, ma soprattutto mi ha supportata nelle fasi cruciali di <strong>discovery</strong> e <strong>validazione</strong>; insieme al <strong>team Welfare &amp; Tax</strong> &mdash; che ha definito contenuti e logiche di eleggibilit&agrave; delle domande &mdash; abbiamo validato gli <strong>user flow</strong>; infine ho gestito l&rsquo;<strong>handoff</strong> con il team di sviluppo per garantire che i <strong>pattern scalabili</strong> venissero implementati correttamente.</p>
+          <span class="section-num">cross-team collaboration</span>
+          <p>A project of this scale doesn&rsquo;t get designed alone. The <strong>Product Lead</strong> managed the overall architecture and phased release roadmap, and was especially valuable during the critical <strong>discovery</strong> and <strong>validation</strong> phases; together with the <strong>Welfare &amp; Tax team</strong> &mdash; who defined content and question eligibility logic &mdash; we validated the <strong>user flows</strong>; I then managed the <strong>handoff</strong> with the engineering team to ensure the <strong>scalable patterns</strong> were implemented correctly.</p>
         </div>
 
         <div class="section-block">
-          <span class="section-num">processo</span>
+          <span class="section-num">process</span>
           <ul class="process-list">
-            <li>Ho condotto <strong>interviste</strong> e <strong>usability test</strong> per capire dove gli utenti si bloccavano nei questionari esistenti, in particolare sul flusso <strong>nucleo familiare</strong></li>
-            <li>Ho progettato i flussi dinamici: invece di sezioni fisse, il sistema chiede solo i campi richiesti dalla singola richiesta (<strong>fast-forward</strong> ai dati mancanti, <strong>editing puntuale</strong> senza dover ripetere l&rsquo;intero questionario)</li>
-            <li>Per il nucleo familiare, ho <strong>unificato i due questionari</strong> in un unico flusso: prima si stabilisce chi fa parte del nucleo, poi si aggiungono i dettagli di ciascun membro, con <strong>editing diretto</strong> sulla lista</li>
-            <li>Ho usato <strong>Cursor + Claude</strong> per prototipare rapidamente varianti di flusso da testare, velocizzando il giro tra ipotesi e <strong>prototipo testabile</strong></li>
-            <li>Ho progettato i componenti pensando alla loro <strong>estensibilit&agrave;</strong>: liste di &ldquo;entit&agrave;&rdquo; (familiari, attivit&agrave;, beni) costruite come <strong>pattern riutilizzabile</strong>, non hardcoded per i campi attuali</li>
+            <li>I ran <strong>interviews</strong> and <strong>usability tests</strong> to understand where users got stuck in the existing questionnaires, especially in the <strong>household</strong> flow</li>
+            <li>I designed dynamic flows: instead of fixed sections, the system only asks for fields required by each specific request (<strong>fast-forward</strong> to missing data, <strong>direct editing</strong> without repeating the entire questionnaire)</li>
+            <li>For household data, I <strong>unified the two questionnaires</strong> into a single flow: first establish who is part of the household, then add details for each member with <strong>direct editing</strong> from the list</li>
+            <li>I used <strong>Cursor + Claude</strong> to rapidly prototype flow variants for testing, compressing the cycle from hypothesis to <strong>testable prototype</strong></li>
+            <li>I designed components with <strong>extensibility</strong> in mind: lists of &ldquo;entities&rdquo; (family members, activities, assets) built as a <strong>reusable pattern</strong>, not hardcoded for current fields</li>
           </ul>
 
-          <img src="img-mobile-experience.png" alt="Mobile experience: flussi attivit&agrave; e gestione immobili" class="case-img" onclick="openLightbox(this.src)">
-          <span class="case-img-caption">mobile experience &mdash; flussi dinamici e liste di entit&agrave; editabili</span>
+          <img src="img-mobile-experience.png" alt="Mobile experience: activity flows and property management" class="case-img" onclick="openLightbox(this.src)">
+          <span class="case-img-caption">mobile experience &mdash; dynamic flows and editable entity lists</span>
         </div>
 
         <div class="section-block">
-          <span class="section-num">la decisione chiave</span>
-          <h2>Progettare per ci&ograve; che non c&rsquo;&egrave; ancora</h2>
-          <p>Dato che il rollout del nuovo profilo si sarebbe svolto in fasi e dato che sapevamo che nei trimestri successivi sarebbero arrivate nuove categorie di dati, ho deliberatamente dato priorit&agrave; ad un <strong>layout scalabile</strong> fin da subito.</p>
+          <span class="section-num">the key decision</span>
+          <h2>Designing for what doesn&rsquo;t exist yet</h2>
+          <p>Since the new profile rollout would happen in phases, and since we knew new data categories were coming in subsequent quarters, I deliberately prioritised a <strong>scalable layout</strong> from the start.</p>
         </div>
 
         <div class="full-bleed-img-wrap">
-          <span class="section-num">approfondimento</span>
-          <img src="img-flow-diagram.png" alt="Diagramma di flusso del sistema di entit&agrave; scalabile (family member, activity, personal data)" class="case-img" onclick="openLightbox(this.src)">
-          <span class="case-img-caption">il sistema di flussi/entit&agrave; scalabile dietro al redesign &mdash; family member, activity e personal data</span>
+          <span class="section-num">deep dive</span>
+          <img src="img-flow-diagram.png" alt="Flow diagram of the scalable entity system (family member, activity, personal data)" class="case-img" onclick="openLightbox(this.src)">
+          <span class="case-img-caption">the scalable flow/entity system behind the redesign &mdash; family member, activity and personal data</span>
         </div>
 
         <div class="section-block">
-          <span class="section-num">riflessione</span>
-          <p class="pull-quote">In un sistema live e ad alto traffico, progettare per la scalabilit&agrave; non &egrave; un costo aggiuntivo: &egrave; l&rsquo;unico modo per evitare che ogni nuova feature diventi un piccolo redesign.</p>
-          <p>E vibecodare i prototipi di test mi ha permesso di esplorare pi&ugrave; varianti di flusso nello stesso tempo in cui prima ne avrei testata una sola.</p>
+          <span class="section-num">reflection</span>
+          <p class="pull-quote">In a live, high-traffic system, designing for scalability isn&rsquo;t an added cost: it&rsquo;s the only way to keep every new feature from becoming a mini redesign.</p>
+          <p>And vibecoding the test prototypes let me explore more flow variants in the same time I would have spent testing just one.</p>
         </div>
 
       </div>
 
-      <!-- SIDEBAR -->
       <aside class="sidebar">
         <div class="sidebar-block">
-          <h3>risultati chiave</h3>
+          <h3>key results</h3>
           <span class="sidebar-metric">95%</span>
-          <span class="sidebar-metric-label">completamento onboarding</span>
+          <span class="sidebar-metric-label">onboarding completion</span>
           <span class="sidebar-metric">5% → 10%</span>
-          <span class="sidebar-metric-label">conversione iscrizioni</span>
+          <span class="sidebar-metric-label">sign-up conversion</span>
           <span class="sidebar-metric">-50%</span>
-          <span class="sidebar-metric-label">tempo di richiesta (servizi principali)</span>
+          <span class="sidebar-metric-label">request time (key services)</span>
         </div>
 
         <div class="sidebar-block">
-          <h3>info progetto</h3>
-          <div class="sidebar-meta-row"><span>ruolo</span><span>Product Designer + AI</span></div>
-          <div class="sidebar-meta-row"><span>azienda</span><span>BonusX</span></div>
-          <div class="sidebar-meta-row"><span>durata</span><span>2 quarter</span></div>
-          <div class="sidebar-meta-row"><span>scala</span><span>~1M utenti</span></div>
+          <h3>project info</h3>
+          <div class="sidebar-meta-row"><span>role</span><span>Product Designer + AI</span></div>
+          <div class="sidebar-meta-row"><span>company</span><span>BonusX</span></div>
+          <div class="sidebar-meta-row"><span>duration</span><span>2 quarters</span></div>
+          <div class="sidebar-meta-row"><span>scale</span><span>~1M users</span></div>
         </div>
 
         <div class="sidebar-block">
@@ -551,15 +478,15 @@
             <span class="sidebar-tag">research</span>
             <span class="sidebar-tag">ai workflow</span>
             <span class="sidebar-tag">design system</span>
-            <span class="sidebar-tag">scalabilit&agrave;</span>
+            <span class="sidebar-tag">scalability</span>
           </div>
         </div>
       </aside>
     </div>
 
     <div class="next-case">
-      <span class="next-case-label">prossimo progetto</span>
-      <a href="case-voip-restyle.html" class="next-case-title">Restyle UX/UI VoIP B2B: -45% sul time on task <span class="arrow">[leggi]</span></a>
+      <span class="next-case-label">next project</span>
+      <a href="case-voip-restyle-en.html" class="next-case-title">VoIP B2B UX/UI Restyle: -45% time on task <span class="arrow">[read]</span></a>
     </div>
   </div>
 
@@ -572,7 +499,6 @@
     window.addEventListener('scroll', () => {
       nav.style.borderColor = window.scrollY > 8 ? 'var(--line)' : 'transparent';
     });
-
     const toggle = document.getElementById('theme-toggle');
     const root = document.documentElement;
     function applyTheme(theme) {
@@ -594,14 +520,14 @@
       navLinks.classList.toggle('open');
       if (navLinks.classList.contains('open')) {
         navLinks.style.top = nav.offsetHeight + 'px';
-        hamburger.textContent = '[chiudi]';
+        hamburger.textContent = '[close]';
       } else {
         hamburger.textContent = '[menu]';
       }
     });
 
     document.getElementById('lang-toggle').addEventListener('click', () => {
-      localStorage.setItem('lang', 'en');
+      localStorage.setItem('lang', 'it');
     });
 
     function openLightbox(src) {

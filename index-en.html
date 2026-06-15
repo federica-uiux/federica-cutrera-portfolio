@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="it">
+<html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -93,7 +93,7 @@
 
   .wrap { max-width: 1040px; margin: 0 auto; padding: 0 1.5rem 4rem; }
 
-  /* HERO — floating card */
+  /* HERO */
   .hero-card {
     padding: 2rem 0;
     margin: 1.5rem 0 3rem;
@@ -252,9 +252,7 @@
     background: var(--violet);
     color: var(--on-violet);
   }
-  .cta-primary:hover {
-    opacity: 0.88;
-  }
+  .cta-primary:hover { opacity: 0.88; }
   .cta-secondary {
     background: transparent;
     color: var(--ink);
@@ -265,7 +263,6 @@
     color: var(--violet);
   }
 
-  /* SECTION LABEL — sticky note style */
   .section-label-wrap {
     display: flex;
     align-items: center;
@@ -278,7 +275,7 @@
     font-size: clamp(1.5rem, 4vw, 2rem);
   }
 
-  /* CASE STUDIES — cards on the board */
+  /* CASE STUDIES */
   .case-list {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -333,10 +330,7 @@
   }
   .case:last-child { border-right: none; }
   .case:nth-child(1), .case:nth-child(2), .case:nth-child(3) { transform: none; }
-  .case:hover {
-    transform: none;
-    background: var(--violet-soft);
-  }
+  .case:hover { transform: none; background: var(--violet-soft); }
   .case:hover .case-title { color: var(--violet); }
   .case:hover .case-arrow { opacity: 1; transform: translateX(4px); }
 
@@ -345,13 +339,11 @@
     justify-content: space-between;
     align-items: flex-start;
   }
-
   .case-index {
     font-family: var(--mono);
     font-size: 0.8rem;
     color: var(--ink-soft);
   }
-
   .case-title {
     font-family: var(--serif);
     font-weight: 900;
@@ -385,7 +377,6 @@
     border-radius: 4px;
     padding: 0.15rem 0.5rem;
   }
-
   .case-arrow {
     font-family: var(--mono);
     font-size: 0.85rem;
@@ -398,7 +389,6 @@
   .case-arrow::before { content: '['; }
   .case-arrow::after { content: ']'; }
 
-  /* COMING SOON CARDS */
   .case.coming-soon {
     cursor: default;
     position: relative;
@@ -426,7 +416,7 @@
   .case.coming-soon .coming-soon-label::before { content: '['; opacity: 0.4; }
   .case.coming-soon .coming-soon-label::after { content: ']'; opacity: 0.4; }
 
-  /* PLAYGROUND TEASER — dashed sticky note */
+  /* PLAYGROUND */
   .playground {
     border: none;
     border-radius: 0;
@@ -467,9 +457,7 @@
   }
   .about-text strong { color: var(--ink); font-weight: 500; }
 
-  .timeline {
-    border-top: 1px solid var(--line);
-  }
+  .timeline { border-top: 1px solid var(--line); }
   .entry {
     display: grid;
     grid-template-columns: 140px 1fr;
@@ -498,15 +486,6 @@
     color: var(--ink-soft);
     max-width: 56ch;
   }
-  .margin-note {
-    margin-top: 0.6rem;
-    font-family: var(--mono);
-    font-size: 0.78rem;
-    color: var(--violet);
-    text-transform: lowercase;
-  }
-  .margin-note::before { content: '['; opacity: 0.5; }
-  .margin-note::after { content: ']'; opacity: 0.5; }
 
   /* FOOTER */
   footer {
@@ -529,7 +508,6 @@
     max-width: none;
   }
   .footer-tagline .accent { color: var(--violet); }
-
   .footer-links {
     display: flex;
     justify-content: flex-end;
@@ -546,7 +524,6 @@
   .footer-links a::after { content: ']'; opacity: 0.4; }
   .footer-links a.footer-cta::before,
   .footer-links a.footer-cta::after { content: none; }
-
   .footer-meta {
     font-family: var(--mono);
     font-size: 0.75rem;
@@ -563,7 +540,6 @@
     padding-top: 1.5rem;
     border-top: 1px dashed var(--line);
   }
-
 
   @media (max-width: 860px) {
     .case-list { grid-template-columns: 1fr 1fr; }
@@ -593,13 +569,13 @@
     <span class="logo">federica cutrera</span>
     <div class="nav-right">
       <div class="links" id="nav-links">
-        <a href="#work">progetti</a>
-        <a href="#about">chi sono</a>
-        <a href="#footer">contatti</a>
+        <a href="#work">work</a>
+        <a href="#about">about</a>
+        <a href="#footer">contact</a>
       </div>
-      <a href="index-en.html" class="lang-toggle" id="lang-toggle">en</a>
-      <button class="theme-toggle" id="theme-toggle" aria-label="cambia tema">[dark]</button>
-      <button class="hamburger" id="hamburger" aria-label="apri menu">[menu]</button>
+      <a href="index.html" class="lang-toggle" id="lang-toggle">it</a>
+      <button class="theme-toggle" id="theme-toggle" aria-label="toggle theme">[dark]</button>
+      <button class="hamburger" id="hamburger" aria-label="open menu">[menu]</button>
     </div>
   </nav>
 
@@ -608,16 +584,16 @@
     <div class="hero-card">
       <div>
         <span class="hero-eyebrow">product designer + ai</span>
-        <h1>Faccio design dal 2016. Ho visto morire abbastanza trend da fidarmi <span class="accent">solo dei dati</span>.</h1>
-        <p class="hero-sub"><strong>Dati, ricerca e AI</strong>: progetto prodotti end-to-end, dalla discovery al delivery. (Che ogni tanto <strong>vibecodo</strong> :)) Curiosa per natura, pragmatica per mestiere.</p>
+        <h1>I've been designing since 2016. I've watched enough trends die to trust <span class="accent">only the data</span>.</h1>
+        <p class="hero-sub"><strong>Data, research & AI</strong>: I design products end-to-end, from discovery to delivery. (And I actually <strong>vibecode</strong> :)) Curious by nature, pragmatic by trade.</p>
         <div class="hero-cta">
-          <a href="#work" class="cta-primary">guarda i progetti</a>
-          <a href="#about" class="cta-secondary">la mia esperienza</a>
+          <a href="#work" class="cta-primary">see the work</a>
+          <a href="#about" class="cta-secondary">my experience</a>
         </div>
       </div>
       <div class="hero-sketch">
         <div class="polaroid">
-          <img src="sketch-upscaled.png" alt="Sketch a penna, autoritratto stilizzato">
+          <img src="sketch-upscaled.png" alt="Pen sketch, stylized self-portrait">
         </div>
       </div>
     </div>
@@ -625,21 +601,21 @@
     <!-- CASE STUDIES -->
     <div class="section-label-wrap" id="work">
       <span class="section-num">work</span>
-      <h2 class="section-title">Casi studio selezionati</h2>
+      <h2 class="section-title">Selected case studies</h2>
     </div>
 
     <div class="case-list">
 
-      <a href="case-bonusx.html" class="case">
+      <a href="case-bonusx-en.html" class="case">
         <div class="case-thumb">
-          <img src="thumbnail_bonusx.jpg" alt="Anteprima case study BonusX">
+          <img src="thumbnail_bonusx.jpg" alt="BonusX case study preview">
         </div>
         <div class="case-body">
           <div class="case-top">
             <span class="case-index">01</span>
-            <span class="case-arrow">leggi</span>
+            <span class="case-arrow">read</span>
           </div>
-          <h3 class="case-title">Profilo BonusX: 95% completion rate</h3>
+          <h3 class="case-title">BonusX Profile: 95% completion rate</h3>
           <div class="case-tags">
             <span class="case-tag">research</span>
             <span class="case-tag">ai workflow</span>
@@ -648,16 +624,16 @@
         </div>
       </a>
 
-      <a href="case-voip-restyle.html" class="case">
+      <a href="case-voip-restyle-en.html" class="case">
         <div class="case-thumb">
-          <img src="thumbnail_voip.jpg" alt="Anteprima case study VoIP">
+          <img src="thumbnail_voip.jpg" alt="VoIP case study preview">
         </div>
         <div class="case-body">
           <div class="case-top">
             <span class="case-index">02</span>
-            <span class="case-arrow">leggi</span>
+            <span class="case-arrow">read</span>
           </div>
-          <h3 class="case-title">Restyle UX/UI VoIP B2B: -45% sul time on task</h3>
+          <h3 class="case-title">VoIP B2B UX/UI Restyle: -45% time on task</h3>
           <div class="case-tags">
             <span class="case-tag">ux research</span>
             <span class="case-tag">contextual inquiry</span>
@@ -672,10 +648,10 @@
           <div class="case-body">
             <div class="case-top">
               <span class="case-index">03</span>
-              <span class="case-arrow">leggi</span>
+              <span class="case-arrow">read</span>
             </div>
-            <h3 class="case-title">Lusso e mobile commerce: il lancio Panerai</h3>
-            <span class="case-metric">[metrica da definire]</span>
+            <h3 class="case-title">Luxury & mobile commerce: the Panerai launch</h3>
+            <span class="case-metric">[metric tbd]</span>
             <div class="case-tags">
               <span class="case-tag">e-commerce</span>
               <span class="case-tag">brand</span>
@@ -688,12 +664,12 @@
 
     </div>
 
-    <!-- PLAYGROUND TEASER (opzionale, da valutare) -->
+    <!-- PLAYGROUND TEASER -->
     <div class="playground">
       <span class="case-index">+</span>
       <div>
         <p class="playground-title">Playground</p>
-        <p class="playground-note">[esperimenti ai/vibecoding — in arrivo]</p>
+        <p class="playground-note">[ai/vibecoding experiments — coming soon]</p>
       </div>
     </div>
 
@@ -701,20 +677,20 @@
     <div class="about-section" id="about">
       <div class="section-label-wrap">
         <span class="section-num">about</span>
-        <h2 class="section-title">Chi sono</h2>
+        <h2 class="section-title">About me</h2>
       </div>
 
       <div class="about-content">
         <div class="about-text">
-          <p>Combino intuizione umana e <strong>workflow AI-augmented</strong> per accelerare il design end-to-end &mdash; <strong>dati qual/quant</strong>, ricerca, <strong>UX/UI full-stack</strong>, dai workshop ai modern handoff (s&igrave;, anche <strong>MCP</strong>, <strong>Claude CLI</strong>, e il buon vecchio <strong>Figma</strong>).</p>
-          <p>Ho un GitHub pieno di quadratini verdi perch&eacute; il <strong>vibecoding</strong> lo faccio davvero. <strong>MRR</strong>, <strong>LTV</strong> e <strong>CRO</strong> non sono parole astratte: sono parte di come penso il design, perch&eacute; il prodotto deve funzionare per chi lo usa e per chi lo fa esistere.</p>
-          <p>Sono sopravvissuta fin qui considerando che ho iniziato a progettare prodotti digitali quando Adobe XD era ancora considerato lo strumento &ldquo;all&rsquo;avanguardia&rdquo;. Se non altro, questo mi ha insegnato ad adattarmi &mdash; che si tratti di lusso digitale per <strong>Panerai</strong>, prodotti bancari per <strong>UniCredit</strong>, o <strong>vibecoding</strong> veloce nelle trincee di una startup.</p>
+          <p>I combine human intuition and <strong>AI-augmented workflow</strong> to accelerate design end-to-end &mdash; <strong>qual/quant data</strong>, research, <strong>full-stack UX/UI</strong>, from workshops to modern handoffs (yes, including <strong>MCP</strong>, <strong>Claude CLI</strong>, and good old <strong>Figma</strong>).</p>
+          <p>My GitHub is full of green squares because I actually <strong>vibecode</strong>. <strong>MRR</strong>, <strong>LTV</strong>, and <strong>CRO</strong> aren&rsquo;t buzzwords &mdash; they&rsquo;re part of how I think about design, because a product has to work for the people using it and for the people keeping it alive.</p>
+          <p>I&rsquo;ve made it this far considering I started designing digital products when Adobe XD was still considered the &ldquo;cutting-edge&rdquo; tool. If nothing else, it taught me to adapt &mdash; whether it&rsquo;s digital luxury for <strong>Panerai</strong>, banking products for <strong>UniCredit</strong>, or fast <strong>vibecoding</strong> in startup trenches.</p>
         </div>
         <div class="about-sketch">
           <div class="polaroid tape-yellow" id="about-polaroid" onclick="document.getElementById('about-polaroid').classList.toggle('tapped')">
             <div class="polaroid-imgs">
-              <img class="img-default" src="sketch-about.png" alt="Sketch a penna, illustrazione di saluto">
-              <img class="img-hover" src="sketch-about-hover.png" alt="Sketch a penna, illustrazione di festeggiamento">
+              <img class="img-default" src="sketch-about.png" alt="Pen sketch, greeting illustration">
+              <img class="img-hover" src="sketch-about-hover.png" alt="Pen sketch, celebration illustration">
             </div>
           </div>
         </div>
@@ -722,31 +698,31 @@
 
       <div class="timeline">
         <div class="entry">
-          <div class="entry-period">giu 2025<br>— presente</div>
+          <div class="entry-period">Jun 2025<br>— present</div>
           <div>
             <h3 class="entry-role">Product Designer + AI <span class="at">@</span> BonusX</h3>
-            <p class="entry-desc">Ricerca + Design + AI. Progetti end-to-end per individuare <strong>friction point</strong>, allineare obiettivi di business e validare soluzioni con <strong>dati qual/quant</strong>. Stack <strong>Figma</strong> + <strong>MCP</strong> + <strong>Claude CLI</strong> + <strong>Cursor</strong>.</p>
+            <p class="entry-desc">Research + Design + AI. End-to-end projects to identify <strong>friction points</strong>, align business goals, and validate solutions with <strong>qual/quant data</strong>. Stack: <strong>Figma</strong> + <strong>MCP</strong> + <strong>Claude CLI</strong> + <strong>Cursor</strong>.</p>
           </div>
         </div>
         <div class="entry">
-          <div class="entry-period">nov 2023<br>— giu 2025</div>
+          <div class="entry-period">Nov 2023<br>— Jun 2025</div>
           <div>
             <h3 class="entry-role">UI/UX Designer · Consultant <span class="at">@</span> Be | Shaping the Future</h3>
-            <p class="entry-desc">Cliente <strong>UniCredit</strong>. Design end-to-end per <strong>prodotti bancari</strong>, gestione stakeholder internazionali, user flow, IA, wireframe e <strong>UI hi-fi</strong>.</p>
+            <p class="entry-desc">Client: <strong>UniCredit</strong>. End-to-end design for <strong>banking products</strong>, international stakeholder management, user flows, IA, wireframes and <strong>hi-fi UI</strong>.</p>
           </div>
         </div>
         <div class="entry">
-          <div class="entry-period">set 2021<br>— nov 2023</div>
+          <div class="entry-period">Sep 2021<br>— Nov 2023</div>
           <div>
             <h3 class="entry-role">UI/UX Designer <span class="at">@</span> Cloudmind</h3>
-            <p class="entry-desc">Product design end-to-end su progetti <strong>B2B</strong> e <strong>B2C</strong>, tra metodologie <strong>user-centered</strong> e pattern <strong>CRO</strong>. Discovery, benchmarking, <strong>user testing</strong>.</p>
+            <p class="entry-desc">End-to-end product design on <strong>B2B</strong> and <strong>B2C</strong> projects, combining <strong>user-centered</strong> methodologies with <strong>CRO</strong> patterns. Discovery, benchmarking, <strong>user testing</strong>.</p>
           </div>
         </div>
         <div class="entry">
-          <div class="entry-period">mag 2016<br>— set 2021</div>
+          <div class="entry-period">May 2016<br>— Sep 2021</div>
           <div>
             <h3 class="entry-role">Digital Art Director | UI/UX Designer <span class="at">@</span> IM*MEDIA</h3>
-            <p class="entry-desc"><strong>Mobile e-commerce</strong> per <strong>Panerai</strong> &mdash; design e supporto on-site al lancio presso Richemont in Svizzera. UI/UX e art direction per <strong>Molinari</strong>, <strong>Vileda</strong>, <strong>Haribo</strong>.</p>
+            <p class="entry-desc"><strong>Mobile e-commerce</strong> for <strong>Panerai</strong> &mdash; design and on-site support at launch at Richemont in Switzerland. UI/UX and art direction for <strong>Molinari</strong>, <strong>Vileda</strong>, <strong>Haribo</strong>.</p>
           </div>
         </div>
       </div>
@@ -755,8 +731,8 @@
     <!-- FOOTER -->
     <footer id="footer">
       <div>
-        <span class="footer-chip">contatti</span>
-        <p class="footer-tagline"><span class="accent">Parliamo</span> del prossimo problema interessante.</p>
+        <span class="footer-chip">contact</span>
+        <p class="footer-tagline"><span class="accent">Let&rsquo;s talk</span> about the next interesting problem.</p>
         <div class="footer-links">
           <a href="https://www.linkedin.com/in/federica-cutrera" target="_blank" class="cta-primary footer-cta">linkedin</a>
         </div>
@@ -768,24 +744,11 @@
     </footer>
   </div>
   <script>
-    // language detection — only on first visit
-    if (!localStorage.getItem('lang')) {
-      const lang = (navigator.language || 'it').toLowerCase();
-      if (!lang.startsWith('it')) {
-        localStorage.setItem('lang', 'en');
-        window.location.replace('index-en.html');
-      } else {
-        localStorage.setItem('lang', 'it');
-      }
-    }
-
-    // scroll nav border
     const nav = document.querySelector('nav');
     window.addEventListener('scroll', () => {
       nav.style.borderColor = window.scrollY > 8 ? 'var(--line)' : 'transparent';
     });
 
-    // dark mode
     const toggle = document.getElementById('theme-toggle');
     const root = document.documentElement;
     function applyTheme(theme) {
@@ -801,22 +764,20 @@
       applyTheme(next);
     });
 
-    // hamburger
     const hamburger = document.getElementById('hamburger');
     const navLinks = document.getElementById('nav-links');
     hamburger.addEventListener('click', () => {
       navLinks.classList.toggle('open');
       if (navLinks.classList.contains('open')) {
         navLinks.style.top = nav.offsetHeight + 'px';
-        hamburger.textContent = '[chiudi]';
+        hamburger.textContent = '[close]';
       } else {
         hamburger.textContent = '[menu]';
       }
     });
 
-    // lang toggle
     document.getElementById('lang-toggle').addEventListener('click', () => {
-      localStorage.setItem('lang', 'en');
+      localStorage.setItem('lang', 'it');
     });
   </script>
 </body>

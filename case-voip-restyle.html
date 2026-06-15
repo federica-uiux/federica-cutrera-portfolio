@@ -71,13 +71,14 @@
     transition: border-color 0.2s ease;
   }
   nav .logo { font-weight: 500; text-transform: lowercase; }
+  nav .nav-right { display: flex; align-items: center; gap: 1.5rem; }
   nav .links { display: flex; gap: 1.5rem; align-items: center; }
   nav a { color: var(--ink-soft); text-decoration: none; text-transform: lowercase; }
   nav a:hover { color: var(--violet); }
   nav a::before { content: '['; color: var(--ink-soft); opacity: 0.4; }
   nav a::after { content: ']'; color: var(--ink-soft); opacity: 0.4; }
 
-  .theme-toggle {
+  .theme-toggle, .hamburger {
     font-family: var(--mono);
     font-size: 0.85rem;
     color: var(--ink-soft);
@@ -87,7 +88,8 @@
     cursor: pointer;
     padding: 0;
   }
-  .theme-toggle:hover { color: var(--violet); }
+  .theme-toggle:hover, .hamburger:hover { color: var(--violet); }
+  .hamburger { display: none; }
 
   .wrap { max-width: 1040px; margin: 0 auto; padding: 0 1.5rem 4rem; }
 
@@ -421,8 +423,9 @@
   }
 
   @media (max-width: 640px) {
-    nav { flex-direction: column; gap: 1rem; align-items: flex-start; }
-    nav .links { gap: 1rem; flex-wrap: wrap; }
+    .hamburger { display: block; }
+    nav .links { display: none; position: fixed; left: 0; right: 0; background: var(--nav-bg); backdrop-filter: blur(6px); border-bottom: 1px solid var(--line); flex-direction: column; padding: 1rem 1.5rem; gap: 1rem; z-index: 9; }
+    nav .links.open { display: flex; }
     .case-hero { padding: 1.5rem 0 1rem; }
     .content-grid { padding-top: 1.5rem; margin-top: 1.5rem; }
     .sidebar { flex-direction: column; }
@@ -433,11 +436,15 @@
 <body>
   <nav>
     <a href="index.html" class="logo" style="text-decoration:none;">federica cutrera</a>
-    <div class="links">
-      <a href="index.html#work">progetti</a>
-      <a href="index.html#about">chi sono</a>
-      <a href="index.html#footer">contatti</a>
+    <div class="nav-right">
+      <div class="links" id="nav-links">
+        <a href="index.html#work">progetti</a>
+        <a href="index.html#about">chi sono</a>
+        <a href="index.html#footer">contatti</a>
+      </div>
+      <a href="case-voip-restyle-en.html" class="lang-toggle" id="lang-toggle">en</a>
       <button class="theme-toggle" id="theme-toggle" aria-label="cambia tema">🌚 dark</button>
+      <button class="hamburger" id="hamburger" aria-label="apri menu">[menu]</button>
     </div>
   </nav>
 
@@ -577,6 +584,22 @@
       const next = current === 'dark' ? 'light' : 'dark';
       localStorage.setItem('theme', next);
       applyTheme(next);
+    });
+
+    const hamburger = document.getElementById('hamburger');
+    const navLinks = document.getElementById('nav-links');
+    hamburger.addEventListener('click', () => {
+      navLinks.classList.toggle('open');
+      if (navLinks.classList.contains('open')) {
+        navLinks.style.top = nav.offsetHeight + 'px';
+        hamburger.textContent = '[chiudi]';
+      } else {
+        hamburger.textContent = '[menu]';
+      }
+    });
+
+    document.getElementById('lang-toggle').addEventListener('click', () => {
+      localStorage.setItem('lang', 'en');
     });
 
     function openLightbox(src) {
