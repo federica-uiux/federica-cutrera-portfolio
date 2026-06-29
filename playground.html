@@ -1,0 +1,482 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Playground — Federica Cutrera</title>
+<meta name="description" content="Playground di Federica Cutrera: esperimenti di vibecoding e AI. Progetti costruiti con Claude Code, Lovable e altri strumenti.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,900&family=Work+Sans:wght@400;500&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --sand: #ffffff;
+    --dot: #E0DDD6;
+    --ink: #2B2925;
+    --ink-soft: #6B655C;
+    --line: #DAD6CD;
+    --violet: #6E3FF2;
+    --violet-soft: #EDE6FE;
+    --card-bg: #ffffff;
+    --nav-bg: rgba(255, 255, 255, 0.85);
+    --on-violet: #ffffff;
+    --chip-color: #B8860B;
+    --chip-bg: #FCEFC7;
+    --serif: 'Fraunces', serif;
+    --sans: 'Work Sans', sans-serif;
+    --mono: 'JetBrains Mono', monospace;
+  }
+  html[data-theme="dark"] {
+    --sand: #1C1A17;
+    --dot: #322F2A;
+    --ink: #F4EFE6;
+    --ink-soft: #A39E94;
+    --line: #3A3631;
+    --violet: #B7A6FB;
+    --violet-soft: #2E2750;
+    --card-bg: #25221F;
+    --nav-bg: rgba(28, 26, 23, 0.85);
+    --on-violet: #1C1A17;
+    --chip-color: #F4D06F;
+    --chip-bg: #3A3320;
+  }
+  html { scroll-behavior: smooth; }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: var(--sans);
+    background-color: var(--sand);
+    background-image: radial-gradient(circle, var(--dot) 1px, transparent 1px);
+    background-size: 24px 24px;
+    color: var(--ink);
+    line-height: 1.6;
+    font-size: 16px;
+    transition: background-color 0.2s ease, color 0.2s ease;
+  }
+
+  /* NAV */
+  nav {
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    max-width: 1040px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.25rem 1.5rem;
+    font-family: var(--mono);
+    font-size: 0.85rem;
+    background: var(--nav-bg);
+    backdrop-filter: blur(6px);
+    border-bottom: 1px solid transparent;
+    transition: border-color 0.2s ease;
+  }
+  nav .logo { font-weight: 500; text-transform: lowercase; }
+  nav .nav-right { display: flex; align-items: center; gap: 1.5rem; }
+  nav .links { display: flex; gap: 1.5rem; align-items: center; }
+  nav a { color: var(--ink-soft); text-decoration: none; text-transform: lowercase; }
+  nav a:hover { color: var(--violet); }
+  nav a::before { content: '['; color: var(--ink-soft); opacity: 0.4; }
+  nav a::after { content: ']'; color: var(--ink-soft); opacity: 0.4; }
+
+  .theme-toggle, .hamburger {
+    font-family: var(--mono);
+    font-size: 0.85rem;
+    color: var(--ink-soft);
+    text-transform: lowercase;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+  }
+  .theme-toggle:hover, .hamburger:hover { color: var(--violet); }
+  .hamburger { display: none; }
+
+  .wrap { max-width: 1040px; margin: 0 auto; padding: 0 1.5rem 4rem; }
+
+  /* HERO */
+  .page-hero {
+    padding: 3rem 0 2rem;
+  }
+  .back-link {
+    display: inline-block;
+    font-family: var(--mono);
+    font-size: 0.8rem;
+    color: var(--ink-soft);
+    text-decoration: none;
+    text-transform: lowercase;
+    margin-bottom: 1.5rem;
+  }
+  .back-link:hover { color: var(--violet); }
+  .back-link::before { content: '['; opacity: 0.4; }
+  .back-link::after { content: ']'; opacity: 0.4; }
+
+  .page-eyebrow {
+    display: inline-block;
+    font-family: var(--mono);
+    font-size: 0.8rem;
+    color: var(--chip-color);
+    background: var(--chip-bg);
+    padding: 0.2rem 0.6rem;
+    border-radius: 4px;
+    text-transform: lowercase;
+    margin-bottom: 1rem;
+  }
+  .page-title {
+    font-family: var(--serif);
+    font-size: clamp(2.2rem, 5vw, 3.2rem);
+    font-weight: 900;
+    line-height: 1.1;
+    color: var(--ink);
+    margin-bottom: 1rem;
+  }
+  .page-subtitle {
+    font-size: 1.05rem;
+    color: var(--ink-soft);
+    max-width: 540px;
+    line-height: 1.65;
+  }
+
+  /* PROJECT LIST */
+  .project-list {
+    margin-top: 3rem;
+    display: flex;
+    flex-direction: column;
+  }
+  .project-item {
+    padding: 2rem 0;
+    border-top: 1px solid var(--line);
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 1.5rem;
+    align-items: start;
+  }
+  .project-item:last-child {
+    border-bottom: none;
+    padding-bottom: 0.75rem;
+  }
+  .project-meta {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+  .project-tools {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem;
+    margin-top: 0.25rem;
+  }
+  .project-tool-tag {
+    font-family: var(--mono);
+    font-size: 0.72rem;
+    color: var(--ink-soft);
+    background: var(--violet-soft);
+    padding: 0.15rem 0.5rem;
+    border-radius: 3px;
+    text-transform: lowercase;
+  }
+  .project-title {
+    font-family: var(--serif);
+    font-size: 1.4rem;
+    font-weight: 900;
+    line-height: 1.2;
+    color: var(--ink);
+  }
+  .project-desc {
+    font-size: 0.95rem;
+    color: var(--ink-soft);
+    line-height: 1.65;
+    margin-top: 0.5rem;
+  }
+  .project-link-wrap {
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-end;
+  }
+  .project-link {
+    font-family: var(--mono);
+    font-size: 0.82rem;
+    color: var(--violet);
+    text-decoration: none;
+    text-transform: lowercase;
+    white-space: nowrap;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.3rem;
+    padding: 0.45rem 0.9rem;
+    border: 1px solid var(--violet);
+    border-radius: 4px;
+    transition: background 0.15s ease, color 0.15s ease;
+  }
+  .project-link::before, .project-link::after { content: none; }
+  .project-link:hover {
+    background: var(--violet);
+    color: var(--on-violet);
+  }
+  .project-link-arrow {
+    font-size: 0.9rem;
+    line-height: 1;
+  }
+
+  /* FOOTER */
+  footer {
+    margin-top: 2.5rem;
+    padding-top: 2.5rem;
+    border-top: none;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+  }
+  .footer-chip {
+    font-family: var(--mono);
+    font-size: 0.75rem;
+    color: var(--chip-color);
+    background: var(--chip-bg);
+    padding: 0.2rem 0.6rem;
+    border-radius: 4px;
+    text-transform: lowercase;
+    display: inline-block;
+    margin-bottom: 0.75rem;
+  }
+  .footer-tagline {
+    font-family: var(--serif);
+    font-size: clamp(1.4rem, 3vw, 2rem);
+    font-weight: 900;
+    line-height: 1.2;
+    margin-bottom: 1.25rem;
+  }
+  .footer-tagline .accent { color: var(--violet); }
+  .footer-links { display: flex; gap: 1rem; }
+  .cta-primary {
+    display: inline-block;
+    font-family: var(--mono);
+    font-size: 0.85rem;
+    color: var(--on-violet);
+    background: var(--violet);
+    text-decoration: none;
+    padding: 0.6rem 1.2rem;
+    border-radius: 4px;
+    text-transform: lowercase;
+    transition: opacity 0.15s ease;
+  }
+  .cta-primary::before, .cta-primary::after { content: none; }
+  .cta-primary:hover { opacity: 0.85; }
+  .footer-meta-row {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+  .footer-meta {
+    font-family: var(--mono);
+    font-size: 0.75rem;
+    color: var(--ink-soft);
+  }
+
+  /* CASE LINKS */
+  .case-links-section {
+    margin-top: 4rem;
+    padding-top: 2.5rem;
+    border-top: 1px solid var(--line);
+  }
+  .case-links-label {
+    font-family: var(--mono);
+    font-size: 0.75rem;
+    color: var(--ink-soft);
+    text-transform: lowercase;
+    margin-bottom: 1rem;
+  }
+  .case-links-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+  }
+  .case-link-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 0;
+    border-bottom: 1px solid var(--line);
+    text-decoration: none;
+    color: var(--ink);
+    transition: color 0.15s ease;
+  }
+  .case-link-item::before, .case-link-item::after { content: none; }
+  .case-link-item:hover { color: var(--violet); }
+  .case-link-title {
+    font-family: var(--serif);
+    font-size: 1.1rem;
+    font-weight: 900;
+  }
+  .case-link-arrow {
+    font-family: var(--mono);
+    font-size: 0.9rem;
+    color: var(--ink-soft);
+    transition: color 0.15s ease, transform 0.15s ease;
+    display: inline-block;
+  }
+  .case-link-item:hover .case-link-arrow {
+    color: var(--violet);
+    transform: translateX(4px);
+  }
+
+  /* MOBILE */
+  @media (max-width: 640px) {
+    .hamburger { display: block; }
+    nav .links { display: none; position: fixed; left: 0; right: 0; background: var(--sand); border-bottom: 1px solid var(--line); flex-direction: column; padding: 1rem 1.5rem; gap: 1rem; z-index: 9; }
+    nav .links.open { display: flex; }
+    .project-item {
+      grid-template-columns: 1fr;
+    }
+    .project-link-wrap {
+      justify-content: flex-start;
+    }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="index.html" class="logo" style="font-family:var(--mono);font-weight:500;text-transform:lowercase;color:var(--ink);text-decoration:none;">federica cutrera</a>
+  <div class="nav-right">
+    <div class="links" id="nav-links">
+      <a href="index.html#work">progetti</a>
+      <a href="index.html#about">chi sono</a>
+      <a href="index.html#footer">contatti</a>
+    </div>
+    <a href="playground-en.html" class="lang-toggle" id="lang-toggle">en</a>
+    <button class="theme-toggle" id="theme-toggle" aria-label="cambia tema">[dark]</button>
+    <button class="hamburger" id="hamburger" aria-label="apri menu">[menu]</button>
+  </div>
+</nav>
+
+<div class="wrap">
+  <div class="page-hero">
+    <a href="index.html" class="back-link">← torna al portfolio</a>
+    <div class="page-eyebrow">playground</div>
+    <h1 class="page-title">Esperimenti AI<br>e vibecoding</h1>
+    <p class="page-subtitle">Non tutto quello che costruisco è un case study. Qui finiscono gli esperimenti: progetti costruiti per capire uno strumento, testare un'idea o semplicemente perché mi andava di farlo.</p>
+  </div>
+
+  <div class="project-list">
+
+    <!-- PROGETTO 1: Portfolio -->
+    <div class="project-item">
+      <div class="project-meta">
+        <h2 class="project-title">Questo portfolio</h2>
+        <p class="project-desc">Volevo capire cosa cambia nel processo di design quando puoi costruire direttamente quello che progetti. Ho usato Claude Code CLI per passare da wireframe mentale a sito in produzione, senza intermediari — né tecnici né tool di handoff. Il risultato è questo portfolio: ogni decisione visiva l'ho presa io, ogni iterazione l'ho fatta in tempo reale, con un AI agent come partner di esecuzione.</p>
+        <div class="project-tools">
+          <span class="project-tool-tag">claude code</span>
+          <span class="project-tool-tag">html / css</span>
+          <span class="project-tool-tag">github pages</span>
+        </div>
+      </div>
+      <div class="project-link-wrap">
+        <a href="https://github.com/federica-uiux/federica-cutrera-portfolio" target="_blank" rel="noopener" class="project-link">
+          vedi su github <span class="project-link-arrow">↗</span>
+        </a>
+      </div>
+    </div>
+
+    <!-- PROGETTO 2: Bollibelli -->
+    <div class="project-item">
+      <div class="project-meta">
+        <h2 class="project-title">Bollibelli</h2>
+        <p class="project-desc">Un calcolatore di francobolli basato sulle tariffe aggiornate di Poste Italiane, costruito con Lovable. Nasce da un bisogno reale: faccio Postcrossing e penpalling, e avevo bisogno di calcolare la cifra giusta in base al Paese di destinazione, al peso e alle combinazioni di francobolli che ho in casa. L'ho reso gratuito e condiviso con la community.</p>
+        <div class="project-tools">
+          <span class="project-tool-tag">lovable</span>
+          <span class="project-tool-tag">vibecoding</span>
+          <span class="project-tool-tag">postcrossing</span>
+        </div>
+      </div>
+      <div class="project-link-wrap">
+        <a href="https://bollibelli.lovable.app/" target="_blank" rel="noopener" class="project-link">
+          apri il sito <span class="project-link-arrow">↗</span>
+        </a>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<div class="wrap">
+  <div class="case-links-section">
+    <p class="case-links-label">case studies</p>
+    <div class="case-links-list">
+      <a href="case-bonusx.html" class="case-link-item">
+        <span class="case-link-title">Profilo BonusX</span>
+        <span class="case-link-arrow">→</span>
+      </a>
+      <a href="case-voip-restyle.html" class="case-link-item">
+        <span class="case-link-title">Restyle UX/UI VoIP B2B</span>
+        <span class="case-link-arrow">→</span>
+      </a>
+    </div>
+  </div>
+</div>
+
+<div class="wrap">
+  <footer id="footer">
+    <div>
+      <span class="footer-chip">contatti</span>
+      <p class="footer-tagline"><span class="accent">Parliamo</span> del prossimo problema interessante.</p>
+      <div class="footer-links">
+        <a href="https://www.linkedin.com/in/federica-cutrera" target="_blank" class="cta-primary footer-cta">linkedin</a>
+      </div>
+    </div>
+    <div class="footer-meta-row">
+      <span class="footer-meta">Vibecoded with 💜</span>
+      <span class="footer-meta">federica cutrera, 2026</span>
+    </div>
+  </footer>
+</div>
+
+<script>
+  // scroll nav border
+  const nav = document.querySelector('nav');
+  window.addEventListener('scroll', () => {
+    nav.style.borderColor = window.scrollY > 8 ? 'var(--line)' : 'transparent';
+  });
+
+  // dark mode
+  const toggle = document.getElementById('theme-toggle');
+  const root = document.documentElement;
+  function applyTheme(theme) {
+    root.setAttribute('data-theme', theme);
+    toggle.textContent = theme === 'dark' ? '☀️ light' : '🌚 dark';
+  }
+  const saved = localStorage.getItem('theme') || 'light';
+  applyTheme(saved);
+  toggle.addEventListener('click', () => {
+    const current = root.getAttribute('data-theme') === 'dark' ? 'dark' : 'light';
+    const next = current === 'dark' ? 'light' : 'dark';
+    localStorage.setItem('theme', next);
+    applyTheme(next);
+  });
+
+  // hamburger
+  const hamburger = document.getElementById('hamburger');
+  const navLinks = document.getElementById('nav-links');
+  hamburger.addEventListener('click', () => {
+    navLinks.classList.toggle('open');
+    if (navLinks.classList.contains('open')) {
+      navLinks.style.top = nav.offsetHeight + 'px';
+      hamburger.textContent = '[chiudi]';
+    } else {
+      hamburger.textContent = '[menu]';
+    }
+  });
+  navLinks.querySelectorAll('a').forEach(link => {
+    link.addEventListener('click', () => {
+      navLinks.classList.remove('open');
+      hamburger.textContent = '[menu]';
+    });
+  });
+
+  // lang toggle
+  document.getElementById('lang-toggle').addEventListener('click', () => {
+    localStorage.setItem('lang', 'en');
+  });
+</script>
+</body>
+</html>
