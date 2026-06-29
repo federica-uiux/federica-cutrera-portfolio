@@ -263,6 +263,8 @@
     border-color: var(--violet);
     color: var(--violet);
   }
+  .cta-primary::before, .cta-primary::after,
+  .cta-secondary::before, .cta-secondary::after { content: none; }
 
   .section-label-wrap {
     display: flex;
@@ -283,6 +285,7 @@
     gap: 0;
     border-top: 1px solid var(--line);
     border-bottom: 1px solid var(--line);
+    margin-bottom: 3rem;
   }
 
   .case {
@@ -441,11 +444,33 @@
     text-transform: lowercase;
     margin-top: 0.3rem;
   }
+  .playground-section {
+    display: flex;
+    align-items: center;
+    gap: 2.5rem;
+    margin-bottom: 3rem;
+  }
+  .playground-polaroid {
+    width: 160px;
+    flex-shrink: 0;
+  }
+  .playground-body {
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+    align-items: flex-start;
+  }
+  .playground-desc {
+    font-size: 1rem;
+    color: var(--ink-soft);
+    line-height: 1.65;
+    max-width: 48ch;
+  }
 
   /* ABOUT + TIMELINE */
   .about-section {
-    margin-top: 4rem;
-    padding-top: 1rem;
+    margin-top: 0;
+    overflow: hidden;
   }
   .about-text {
     max-width: 62ch;
@@ -560,7 +585,7 @@
     .entry { grid-template-columns: 1fr; gap: 0.4rem; }
     .about-content { grid-template-columns: 1fr; gap: 1.5rem; }
     .about-sketch { max-width: 160px; order: -1; justify-self: flex-start; }
-    .playground { flex-direction: column; align-items: flex-start; transform: none; }
+    .playground-section { flex-direction: column; align-items: flex-start; gap: 1.5rem; }
     footer { padding: 2rem 0; flex-direction: column; align-items: flex-start; transform: none; }
   }
 </style>
@@ -571,6 +596,7 @@
     <div class="nav-right">
       <div class="links" id="nav-links">
         <a href="#work">work</a>
+        <a href="#playground">playground</a>
         <a href="#about">about</a>
         <a href="#footer">contact</a>
       </div>
@@ -665,14 +691,21 @@
 
     </div>
 
-    <!-- PLAYGROUND TEASER -->
-    <a href="playground-en.html" class="playground" style="text-decoration:none;">
-      <span class="case-index">+</span>
-      <div>
-        <p class="playground-title">Playground</p>
-        <p class="playground-note">[ai/vibecoding experiments]</p>
+    <!-- PLAYGROUND -->
+    <div class="section-label-wrap" id="playground">
+      <span class="section-num">playground</span>
+      <h2 class="section-title">AI experiments and vibecoding</h2>
+    </div>
+
+    <div class="playground-section">
+      <div class="playground-polaroid polaroid">
+        <img src="sketch-playground.png" alt="Federica sketch">
       </div>
-    </a>
+      <div class="playground-body">
+        <p class="playground-desc">Not everything I build becomes a case study. This is where the experiments live: projects made to understand a tool, test an idea, or simply because I felt like it.</p>
+        <a href="playground-en.html" class="cta-primary">see the playground</a>
+      </div>
+    </div>
 
     <!-- ABOUT + TIMELINE -->
     <div class="about-section" id="about">

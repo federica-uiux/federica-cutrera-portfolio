@@ -265,6 +265,8 @@
     border-color: var(--violet);
     color: var(--violet);
   }
+  .cta-primary::before, .cta-primary::after,
+  .cta-secondary::before, .cta-secondary::after { content: none; }
 
   /* SECTION LABEL — sticky note style */
   .section-label-wrap {
@@ -286,6 +288,7 @@
     gap: 0;
     border-top: 1px solid var(--line);
     border-bottom: 1px solid var(--line);
+    margin-bottom: 3rem;
   }
 
   .case {
@@ -428,34 +431,33 @@
   .case.coming-soon .coming-soon-label::after { content: ']'; opacity: 0.4; }
 
   /* PLAYGROUND TEASER — dashed sticky note */
-  .playground {
-    border: none;
-    border-radius: 0;
-    padding: 1.25rem 0;
+  .playground-section {
     display: flex;
     align-items: center;
+    gap: 2.5rem;
+    margin-bottom: 3rem;
+  }
+  .playground-polaroid {
+    width: 160px;
+    flex-shrink: 0;
+  }
+  .playground-body {
+    display: flex;
+    flex-direction: column;
     gap: 1.25rem;
-    margin-top: 0;
-    transform: none;
+    align-items: flex-start;
   }
-  .playground-title {
-    font-family: var(--serif);
-    font-weight: 900;
-    font-size: 1.1rem;
+  .playground-desc {
+    font-size: 1rem;
     color: var(--ink-soft);
-  }
-  .playground-note {
-    font-family: var(--mono);
-    font-size: 0.78rem;
-    color: var(--ink-soft);
-    text-transform: lowercase;
-    margin-top: 0.3rem;
+    line-height: 1.65;
+    max-width: 48ch;
   }
 
   /* ABOUT + TIMELINE */
   .about-section {
-    margin-top: 4rem;
-    padding-top: 1rem;
+    margin-top: 0;
+    overflow: hidden;
   }
   .about-text {
     max-width: 62ch;
@@ -584,7 +586,7 @@
     .entry { grid-template-columns: 1fr; gap: 0.4rem; }
     .about-content { grid-template-columns: 1fr; gap: 1.5rem; }
     .about-sketch { max-width: 160px; order: -1; justify-self: flex-start; }
-    .playground { flex-direction: column; align-items: flex-start; transform: none; }
+    .playground-section { flex-direction: column; align-items: flex-start; gap: 1.5rem; }
     footer { padding: 2rem 0; flex-direction: column; align-items: flex-start; transform: none; }
   }
 </style>
@@ -595,6 +597,7 @@
     <div class="nav-right">
       <div class="links" id="nav-links">
         <a href="#work">progetti</a>
+        <a href="#playground">playground</a>
         <a href="#about">chi sono</a>
         <a href="#footer">contatti</a>
       </div>
@@ -689,14 +692,21 @@
 
     </div>
 
-    <!-- PLAYGROUND TEASER -->
-    <a href="playground.html" class="playground" style="text-decoration:none;">
-      <span class="case-index">+</span>
-      <div>
-        <p class="playground-title">Playground</p>
-        <p class="playground-note">[esperimenti ai/vibecoding]</p>
+    <!-- PLAYGROUND -->
+    <div class="section-label-wrap" id="playground">
+      <span class="section-num">playground</span>
+      <h2 class="section-title">Esperimenti AI e vibecoding</h2>
+    </div>
+
+    <div class="playground-section">
+      <div class="playground-polaroid polaroid">
+        <img src="sketch-playground.png" alt="Federica sketch">
       </div>
-    </a>
+      <div class="playground-body">
+        <p class="playground-desc">Non tutto quello che costruisco è un case study. Qui finiscono gli esperimenti: progetti fatti per capire uno strumento, testare un'idea o semplicemente perché mi andava di farlo.</p>
+        <a href="playground.html" class="cta-primary">guarda il playground</a>
+      </div>
+    </div>
 
     <!-- ABOUT + TIMELINE -->
     <div class="about-section" id="about">
