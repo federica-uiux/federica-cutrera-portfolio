@@ -97,6 +97,33 @@
   /* HERO */
   .page-hero {
     padding: 3rem 0 2rem;
+    display: grid;
+    grid-template-columns: 1fr 300px;
+    gap: 2rem;
+    align-items: center;
+  }
+  .page-hero-text { display: flex; flex-direction: column; align-items: flex-start; }
+  .page-hero-sketch { justify-self: center; width: 100%; max-width: 300px; }
+  .polaroid {
+    background: var(--card-bg);
+    border: 1px solid var(--line);
+    border-radius: 4px;
+    padding: 10px 10px 32px;
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.12);
+    transform: rotate(3deg);
+    position: relative;
+  }
+  .polaroid img { display: block; width: 100%; border-radius: 2px; }
+  .polaroid::after {
+    content: '';
+    position: absolute;
+    width: 50px;
+    height: 18px;
+    background: rgba(110, 63, 242, 0.25);
+    top: -8px;
+    left: calc(50% - 25px);
+    border-radius: 2px;
+    transform: rotate(-4deg);
   }
   .back-link {
     display: inline-block;
@@ -325,6 +352,8 @@
     .hamburger { display: block; }
     nav .links { display: none; position: fixed; left: 0; right: 0; background: var(--sand); border-bottom: 1px solid var(--line); flex-direction: column; padding: 1rem 1.5rem; gap: 1rem; z-index: 9; }
     nav .links.open { display: flex; }
+    .page-hero { grid-template-columns: 1fr; }
+    .page-hero-sketch { order: -1; max-width: 140px; justify-self: flex-start; }
     .project-item {
       grid-template-columns: 1fr;
     }
@@ -353,10 +382,17 @@
 
 <div class="wrap">
   <div class="page-hero">
-    <a href="index.html" class="back-link">← torna al portfolio</a>
-    <div class="page-eyebrow">playground</div>
-    <h1 class="page-title">Esperimenti AI<br>e vibecoding</h1>
-    <p class="page-subtitle">Non tutto quello che costruisco è un case study. Qui finiscono gli esperimenti: progetti costruiti per capire uno strumento, testare un'idea o semplicemente perché mi andava di farlo.</p>
+    <div class="page-hero-text">
+      <a href="index.html" class="back-link">← torna al portfolio</a>
+      <div class="page-eyebrow">playground</div>
+      <h1 class="page-title">Esperimenti AI<br>e vibecoding</h1>
+      <p class="page-subtitle">Non tutto quello che costruisco è un case study. Qui finiscono gli esperimenti: progetti costruiti per capire uno strumento, testare un'idea o semplicemente perché mi andava di farlo.</p>
+    </div>
+    <div class="page-hero-sketch">
+      <div class="polaroid">
+        <img src="sketch-vibecoding.png" alt="Sketch vibecoding">
+      </div>
+    </div>
   </div>
 
   <div class="project-list">
