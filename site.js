@@ -143,7 +143,8 @@ window.Kit = (function () {
     box.className = 'lightbox';
     box.setAttribute('role', 'dialog');
     box.setAttribute('aria-modal', 'true');
-    box.innerHTML = '<img alt="">';
+    box.setAttribute('data-lenis-prevent', ''); // the overlay scrolls on its own, outside the smooth-scroll
+    box.innerHTML = '<img alt=""><button class="lightbox-close" type="button" aria-label="' + (italian ? 'Chiudi' : 'Close') + '"><i class="ph ph-x" aria-hidden="true"></i></button>';
     document.body.appendChild(box);
     const img = box.querySelector('img');
     let opener = null;
@@ -152,6 +153,7 @@ window.Kit = (function () {
       const src = btn.querySelector('img');
       img.src = src.src; img.alt = src.alt; opener = btn;
       box.classList.add('open');
+      box.scrollTop = 0;
       if (lenis) lenis.stop();
     }));
     box.addEventListener('click', close);

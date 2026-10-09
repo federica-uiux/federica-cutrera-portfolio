@@ -361,9 +361,12 @@ footer.container { padding-top: 2rem; padding-bottom: 7rem; }
 .next-case:hover .read i { transform: translateX(5px); }
 main > .content-grid:last-child { padding-bottom: 7rem; }
 
-.lightbox { position: fixed; inset: 0; z-index: 90; display: none; place-items: center; padding: clamp(1rem, 4vw, 3rem); background: rgba(12, 13, 17, 0.88); cursor: zoom-out; }
-.lightbox.open { display: grid; }
-.lightbox img { width: auto; height: auto; max-width: 100%; max-height: 100%; object-fit: contain; background: var(--surface); }
+.lightbox { position: fixed; inset: 0; z-index: 90; display: none; overflow: auto; overscroll-behavior: contain; padding: clamp(1rem, 4vw, 3rem); background: rgba(12, 13, 17, 0.9); cursor: zoom-out; }
+.lightbox.open { display: flex; }
+/* the image keeps its full width and the overlay scrolls, so tall screenshots can be read; auto margins centre short ones */
+.lightbox img { display: block; width: min(1500px, 100%); height: auto; max-width: none; margin: auto; object-fit: contain; background: var(--surface); }
+.lightbox-close { position: fixed; top: 16px; right: 16px; display: grid; place-items: center; width: 44px; height: 44px; border: none; border-radius: 999px; background: var(--surface); color: var(--ink); font-size: 1.25rem; cursor: pointer; box-shadow: var(--shadow); }
+.lightbox-close:hover { background: var(--you); color: var(--on-you); }
 
 /* playground: projects pinned on the canvas, free to move */
 .page-hero { position: relative; display: grid; grid-template-columns: minmax(0, 1.5fr) minmax(0, 0.8fr); gap: 4rem; align-items: center; padding-top: clamp(2.5rem, 7vh, 4rem); padding-bottom: 6rem; }
@@ -473,8 +476,8 @@ main > .content-grid:last-child { padding-bottom: 7rem; }
 .drag:hover, .drag:active { outline-color: var(--you); }
 
 /* tags react to the visitor too */
-.tags li, .sidebar-tag { transition: border-color 0.2s ease, color 0.2s ease, background 0.2s ease; }
-.tags li:hover, .sidebar-tag:hover, .pin-note .tags li:hover { border-color: var(--you); color: var(--you); background: var(--you-soft); }
+.tags li { transition: border-color 0.2s ease, color 0.2s ease, background 0.2s ease; }
+.tags li:hover, .pin-note .tags li:hover { border-color: var(--you); color: var(--you); background: var(--you-soft); }
 
 /* case study section headings work as bookmarks for someone scanning the page: bold, in the visitor's colour */
 .main-col .layer-name { display: flex; align-items: center; gap: 0.55rem; font-family: var(--sans); font-size: 1.2rem; font-weight: 700; letter-spacing: -0.015em; line-height: 1.2; color: var(--you); margin-bottom: 1.1rem; scroll-margin-top: 90px; }
