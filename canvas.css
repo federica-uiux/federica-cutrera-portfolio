@@ -316,7 +316,7 @@ footer.container { padding-top: 2rem; padding-bottom: 7rem; }
 .section-block, .full-bleed-img-wrap { margin-bottom: 4.5rem; }
 .main-col > :last-child { margin-bottom: 0; }
 .main-col p { color: var(--muted); font-size: 1.08rem; max-width: 66ch; margin-bottom: 1.1rem; }
-.main-col h2 { font-size: clamp(1.5rem, 2.4vw, 2.1rem); line-height: 1.12; margin-bottom: 1rem; }
+.main-col .block-title { font-size: clamp(1.5rem, 2.4vw, 2.1rem); line-height: 1.12; margin-bottom: 1rem; }
 .main-col em { color: var(--ink); }
 
 .result-list { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
@@ -429,3 +429,52 @@ main > .content-grid:last-child { padding-bottom: 7rem; }
   .note, .pin-note, .main-col .pull-quote { --fold: 32px; }
   .note { aspect-ratio: auto; justify-self: stretch; max-width: none; }
 }
+
+/* ---------- The visitor's colour ----------
+   Two actors, two colours. Cobalt is Federica: her frames, labels and selections. Magenta is the visitor ("tu" / "you"):
+   their cursor, their chat messages, and anything they touch. At rest the page is cobalt; whatever the visitor hovers,
+   focuses, grabs or selects turns magenta, so the response always reads as "this is you". */
+:root { --you: #D01F7A; --you-soft: #FBD3E7; --on-you: #FFFBFD; }
+[data-theme="dark"] { --you: #FF6DB3; --you-soft: #4A1C36; --on-you: #16171A; }
+.cur.you { --c: var(--you); }
+::selection { background: var(--you-soft); color: var(--ink); }
+:focus-visible, .chat-field input:focus-visible { outline-color: var(--you); }
+.chat-field input:focus-visible { border-color: var(--you); }
+
+.btn-primary:hover, .pin-card .btn:hover, .chat-cta .btn:hover { background: var(--you); border-color: var(--you); color: var(--on-you); box-shadow: 0 0 0 4px var(--you-soft); }
+.btn-secondary:hover, .chip:hover { border-color: var(--you); background: var(--you-soft); }
+.links a:hover, .lang-toggle:hover, .theme-toggle:hover, .hamburger:hover, .chat-close:hover { background: var(--you-soft); }
+.back-link:hover, .jump:hover, .bubble a:not(.btn):hover { color: var(--you); }
+.board:hover .read, .next-case:hover .read { color: var(--you); }
+
+/* frames answer to the hand that holds them */
+.frame[data-resize]:hover, .frame[data-resize].resizing, .frame[data-resize]:focus-within { border-color: var(--you); }
+.frame[data-resize]:hover .hd, .frame[data-resize].resizing .hd, .frame[data-resize]:hover .frame-label { border-color: var(--you); color: var(--you); }
+.board:hover .board-art, .board.resizing .board-art, .board:focus-within .board-art, .shot-btn:hover, .shot-btn:focus-visible { outline-color: var(--you); }
+.board:hover .hd, .board.resizing .hd, .board-soon:hover .hd, .board-soon.resizing .hd, .shot-btn:hover .hd { border-color: var(--you); }
+.board-soon:hover, .board-soon.resizing, .board-soon:focus-within, .next-case:hover, .jump:hover { border-color: var(--you); }
+.grip:hover, .resizing .grip { background: var(--you); border-color: var(--you); }
+.dim { background: var(--you); color: var(--on-you); }
+
+/* the chat is an invitation addressed to the visitor */
+.chat-fab > i { background: var(--you); color: var(--on-you); }
+.chat-fab:hover .avatar { border-color: var(--you); }
+.msg-you .bubble { border-color: var(--you); }
+
+/* when the "federica" cursor demonstrates a resize, the frame stays hers */
+.board.by-federica .board-art { outline-color: var(--accent); }
+.board.by-federica .hd { border-color: var(--accent); }
+.board.by-federica .grip.br { background: var(--accent); }
+.board.by-federica .dim { background: var(--accent); color: var(--on-accent); }
+
+/* anything the visitor can pick up shows their selection box while they hover or drag it */
+.drag { outline: 1.5px solid transparent; outline-offset: 4px; transition: outline-color 0.2s ease; }
+.drag:hover, .drag:active { outline-color: var(--you); }
+
+/* tags react to the visitor too */
+.tags li, .sidebar-tag { transition: border-color 0.2s ease, color 0.2s ease, background 0.2s ease; }
+.tags li:hover, .sidebar-tag:hover, .pin-note .tags li:hover { border-color: var(--you); color: var(--you); background: var(--you-soft); }
+
+/* case study section headings work as bookmarks for someone scanning the page: bold, in the visitor's colour */
+.main-col .layer-name { display: flex; align-items: center; gap: 0.55rem; font-family: var(--sans); font-size: 1.2rem; font-weight: 700; letter-spacing: -0.015em; line-height: 1.2; color: var(--you); margin-bottom: 1.1rem; scroll-margin-top: 90px; }
+.main-col .layer-name::before { content: ''; width: 9px; height: 9px; flex-shrink: 0; background: var(--you); }

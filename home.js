@@ -150,13 +150,13 @@
           const p = () => { const r = grip.getBoundingClientRect(), w = Resize.wrap.getBoundingClientRect(); return { x: r.left - w.left + 3, y: r.top - w.top + 3 }; };
           const o = { v: Resize.s.a }, base = o.v;
           const follow = () => { Resize.set('a', o.v); gsap.set(cur, p()); };
-          const demo = gsap.timeline({ delay: 1, onUpdate: () => { if (Resize.touched) { demo.kill(); A.classList.remove('resizing'); gsap.to(cur, { opacity: 0, duration: 0.2 }); } } });
+          const demo = gsap.timeline({ delay: 1, onUpdate: () => { if (Resize.touched) { demo.kill(); A.classList.remove('resizing', 'by-federica'); gsap.to(cur, { opacity: 0, duration: 0.2 }); } } });
           demo.set(cur, { x: p().x + 90, y: p().y + 70 })
             .to(cur, { opacity: 1, x: () => p().x, y: () => p().y, duration: 0.7, ease: 'power3.out' })
-            .add(() => A.classList.add('resizing'))
+            .add(() => A.classList.add('resizing', 'by-federica'))
             .to(o, { v: base + 4.5, duration: 0.8, ease: 'power2.inOut', onUpdate: follow }, '+=0.15')
             .to(o, { v: base, duration: 0.8, ease: 'power2.inOut', onUpdate: follow }, '+=0.2')
-            .add(() => { A.classList.remove('resizing'); ScrollTrigger.refresh(); })
+            .add(() => { A.classList.remove('resizing', 'by-federica'); ScrollTrigger.refresh(); })
             .to(cur, { opacity: 0, x: '+=40', y: '+=30', duration: 0.5, ease: 'power2.in' }, '+=0.2');
         },
       });
