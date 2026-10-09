@@ -23,7 +23,7 @@
     } catch (e) {}
     var d = document.documentElement, t;
     try { t = localStorage.getItem('theme'); } catch (e) {}
-    d.dataset.theme = t || (matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+    d.dataset.theme = t || 'dark'; // dark is the default; the toggle remembers an explicit choice
     d.classList.add('js');
     if (matchMedia('(prefers-reduced-motion: no-preference)').matches) {
       d.classList.add('intro-pending');
